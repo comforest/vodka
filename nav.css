@@ -1,0 +1,47 @@
+.nav {
+	dis
+	margin:10px 100px;
+
+	background-color: gray;
+	border-radius: 30px;
+}
+
+.nav *{
+	display: inline-block;
+}
+
+
+.nav ul{
+	margin: 0px;	
+}
+
+.nav ul li{
+	line-height: 60px;
+	padding: 0 20px;
+
+	vertical-align: middle;
+	list-style: none;
+}	
+
+.nav li:not(:last-child):not(.nav-icon){
+	border-style: solid;
+	border-color: white;
+	border-width: 0px;
+	border-right-width: 2px;
+
+}
+
+.nav li:hover:not(.nav-icon) {
+	background-color: #900;
+}
+
+
+
+.nav .nav-icon img{
+	height:57px;
+	width:auto;
+	vertical-align: middle;
+
+	margin: 0px;
+	padding: 0px;
+}
