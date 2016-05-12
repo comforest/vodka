@@ -25,25 +25,28 @@
 			//Table Head
 			echo("<thead>");
 			echo("<tr>");
-				echo("<th></th><th></th>");
+				echo("<th></th>");
 				$y = (int)date("Y",strtotime($date));
 				$m = (int)date("n",strtotime($date));
 				$url = "index.php?";
+				$urledit = "";
+				echo("<th><a href=".$url."y=".($y-1)."&m=".$m.">&laquo</a></th>");
 				if($m === 1){
-					$url = $url."y=".($y-1)."&m=12";
+					$urledit = $url."y=".($y-1)."&m=12";
 				}else{
-					$url = $url."y=".$y."&m=".($m -1);
+					$urledit = $url."y=".$y."&m=".($m -1);
 				}
-				echo("<th><a href=".$url.">&lt</a></th>");
-				echo("<th>".$m."</th>");
+				echo("<th><a href=".$urledit.">&lt</a></th>");
+				echo("<th>".$y."년 ".$m."월</th>");
 
-				$url = "index.php?";
 				if($m === 12){
-					$url = $url."y=".($y+1)."&m=1";
+					$urledit = $url."y=".($y+1)."&m=1";
 				}else{
-					$url = $url."y=".$y."&m=".($m +1);
+					$urledit = $url."y=".$y."&m=".($m +1);
 				}
-				echo("<th><a href=".$url.">&gt</a></th>");
+
+				echo("<th><a href=".$urledit.">&gt</a></th>");
+				echo("<th><a href=".$url."y=".($y+1)."&m=".$m.">&raquo</a></th>");
 			echo("</tr>");
 
 			echo("<tr>
