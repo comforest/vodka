@@ -8,10 +8,78 @@
 <body>
 
 	<?php
-		include("menu.html");
-		echo("header");
-		echo("footer");
-
+		include("menu.html");	
 	?>
+
+	<table>
+		<?php
+			
+			//Set Date
+			$date = "";
+			if($_GET["y"] === null || $_GET["m"] === null){
+				$date = date("Y-n-1");	
+			}else{
+				$date = $_GET["y"]."-".$_GET["m"]."-1";
+			}
+
+			//Table Head
+			echo("<thead>");
+			echo("<tr>");
+				echo("<th></th><th></th>");
+				$y = (int)date("Y",strtotime($date));
+				$m = (int)date("n",strtotime($date));
+				$url = "index.php?";
+				if($m === 1){
+					$url = $url."y=".($y-1)."&m=12";
+				}else{
+					$url = $url."y=".$y."&m=".($m -1);
+				}
+				echo("<th><a href=".$url.">&lt</a></th>");
+				echo("<th>".$m."</th>");
+
+				$url = "index.php?";
+				if($m === 12){
+					$url = $url."y=".($y+1)."&m=1";
+				}else{
+					$url = $url."y=".$y."&m=".($m +1);
+				}
+				echo("<th><a href=".$url.">&gt</a></th>");
+			echo("</tr>");
+
+			echo("<tr>
+				<th>일요일</th><th>월요일</th><th>화요일</th>
+				<th>수요일</th><th>목요일</th><th>금요일</th>
+				<th>토요일</th>
+				</tr>");
+
+			echo("</thead>");
+
+			echo("<tbody>");
+			//Table Body - Body
+			$start = date('w', strtotime($date));
+			$end = date("t", strtotime($date));
+			$d = 1;
+			$bool = true;
+			while($bool){
+				echo("<tr>");
+				for($i = 0; $i < 7; ++$i){
+					if($d > $end){
+						$bool = false;
+						break;
+					}
+					if($d == 1 && $i == $start){
+						echo("<td>".($d++)."</td>");
+					}else if ($d > 1){
+						echo("<td>".($d++)."</td>");
+					}else{
+						echo("<td></td>");
+					}
+				}
+				echo("</tr>");
+			}
+
+			?>
+		</tbody>
+	</table>
 </body>
 </html>
