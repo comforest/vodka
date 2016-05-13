@@ -3,6 +3,7 @@
 
 	background-color: gray;
 	border-radius: 30px;
+	min-width: 1000px
 }
 
 .nav *{
