@@ -1,0 +1,41 @@
+.calendar{
+	width:100%;
+}
+
+.calendar table{
+	position: relative;
+	left:50%;
+	margin-left: -490px;
+}
+
+.calendar table thead tr:first-child th{
+	font-size: 1.5em;
+}
+
+.calendar a{
+	text-decoration: none;
+	color:black;
+}
+
+.calendar table thead tr:last-child th, .calendar table tbody td{
+	width : 140px;
+	border:solid black 1px;
+}
+
+.calendar table tbody td{
+	text-align: left;
+	vertical-align: top;
+	height:100px;
+}
+
+.calendar table td{
+	padding:7px 10px;
+}
+
+/* 토,일 요일 색 칠하기*/
+.calendar table th:first-child, .calendar table td:first-child{
+	color: red;
+}
+.calendar table th:nth-child(7), .calendar table td:nth-child(7){
+	color: blue;
+}
