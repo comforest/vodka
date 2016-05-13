@@ -1,9 +1,10 @@
 .nav {
-	margin:10px 250px;
+	margin:10px auto;
 
 	background-color: gray;
 	border-radius: 30px;
-	min-width: 1000px
+
+	width: 1000px
 }
 
 .nav *{
@@ -16,7 +17,7 @@
 }
 
 .nav ul li{
-	line-height: 60px;
+	line-height: 50px;
 	padding: 0 20px;
 
 	vertical-align: middle;
@@ -38,7 +39,7 @@
 
 
 .nav .nav-icon img{
-	height:57px;
+	height:47px;
 	width:auto;
 	vertical-align: middle;
 

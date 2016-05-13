@@ -3,13 +3,14 @@
 }
 
 .calendar table{
-	width:60%;
-	min-width: 1000px;
-	margin:auto;
+	width: 900px;
+	margin: 30px auto;
 }
 
+/*년월일 표시*/
 .calendar table thead tr:first-child th{
 	font-size: 1.5em;
+	padding-bottom: 15px;
 }
 
 .calendar a{
@@ -17,19 +18,20 @@
 	color:black;
 }
 
+/*요일 부분*/
 .calendar table thead tr:last-child th, .calendar table tbody td{
 	width : 140px;
 	border:solid black 1px;
+	padding:5px 10px;
 }
 
+
+
+/* 바디 부분*/
 .calendar table tbody td{
 	text-align: left;
 	vertical-align: top;
-	height:100px;
-}
-
-.calendar table td{
-	padding:7px 10px;
+	height:90px;
 }
 
 /* 토,일 요일 색 칠하기*/

@@ -67,19 +67,19 @@
 				while($bool){
 					echo("<tr>");
 					for($i = 0; $i < 7; ++$i){
-						if($d > $end){
-							$bool = false;
-							break;
-						}
 						if($d == 1 && $i == $start){
 							echo("<td>".($d++)."</td>");
-						}else if ($d > 1){
+						}else if ($d > 1 && $d <= $end){
 							echo("<td>".($d++)."</td>");
 						}else{
 							echo("<td></td>");
 						}
 					}
 					echo("</tr>");
+
+					if($d > $end){
+						$bool = false;
+					}
 				}
 
 				?>
