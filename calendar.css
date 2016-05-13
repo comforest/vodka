@@ -3,9 +3,9 @@
 }
 
 .calendar table{
-	position: relative;
-	left:50%;
-	margin-left: -490px;
+	width:60%;
+	min-width: 1000px;
+	margin:auto;
 }
 
 .calendar table thead tr:first-child th{
