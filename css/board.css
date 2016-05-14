@@ -1,0 +1,17 @@
+.board table{
+	width:900px;
+	margin: 30px auto;
+	border-collapse: collapse;
+}
+
+.board td, .board th{
+	border:solid black 1px;	
+}
+
+.board th:first-child, .board td:first-child{
+	border-left: none;
+}
+
+.board th:last-child, .board td:last-child{
+	border-right: none;
+}
