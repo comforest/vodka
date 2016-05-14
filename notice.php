@@ -10,5 +10,34 @@
 	?>
 
 	
+	<table>
+		<thead>
+			<tr>
+				<th>
+					제목
+				</th>
+				<th>
+					글쓴이
+				</th>
+				<th>
+					날짜
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					공지사항 입니다. 하잇 하잇 하잇
+				</td>
+				<td>
+					저에ㅛ
+				</td>
+				<td>
+					2015.11.22
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
 </body>
 </html>

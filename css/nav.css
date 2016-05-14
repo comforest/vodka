@@ -15,11 +15,8 @@
 .nav ul{
 	margin: 0px;	
 }
-
 .nav ul li{
 	line-height: 50px;
-	padding: 0 20px;
-
 	vertical-align: middle;
 	list-style: none;
 }	
@@ -29,20 +26,27 @@
 	border-color: white;
 	border-width: 0px;
 	border-right-width: 2px;
-
 }
 
-.nav li:hover:not(.nav-icon) {
-	background-color: #900;
+.nav .nav-icon{
+	margin-right: 30px;
 }
-
-
-
 .nav .nav-icon img{
 	height:47px;
 	width:auto;
 	vertical-align: middle;
-
 	margin: 0px;
 	padding: 0px;
+}
+
+.nav  li a{
+	width: auto;
+	height : 100%;
+	color: black;
+	text-decoration: none;
+
+	padding: 0px 20px;
+}
+.nav li:hover:not(.nav-icon) a{
+	background-color: #900;
 }
