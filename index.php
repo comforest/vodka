@@ -3,13 +3,13 @@
 <head>
 	<meta charset="utf-8">
 	<title>TEST</title>
-	<link rel="stylesheet" type="text/css" href="nav.css">
-	<link rel="stylesheet" type="text/css" href="calendar.css">
+	<link rel="stylesheet" type="text/css" href="\css\nav.css">
+	<link rel="stylesheet" type="text/css" href="\css\calendar.css">
 </head>
 <body>
 
 	<?php
-		include("menu.html");	
+		include $_SERVER["DOCUMENT_ROOT"]."/html/menu.html";	
 	?>
 
 	<section class="calendar">
