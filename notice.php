@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<title>VoDKa</title>
 	<link rel="stylesheet" type="text/css" href="\css\nav.css">
 	<link rel="stylesheet" type="text/css" href="\css\board.css">
 </head>

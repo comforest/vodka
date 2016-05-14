@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>TEST</title>
+	<title>VoDKa</title>
 	<link rel="stylesheet" type="text/css" href="\css\nav.css">
 	<link rel="stylesheet" type="text/css" href="\css\calendar.css">
 </head>
