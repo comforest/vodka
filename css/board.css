@@ -6,6 +6,7 @@
 
 .board td, .board th{
 	border:solid black 1px;	
+	text-align: center;
 }
 
 .board th:first-child, .board td:first-child{
@@ -14,4 +15,9 @@
 
 .board th:last-child, .board td:last-child{
 	border-right: none;
+}
+
+.board .align-left{
+	text-align: left;
+	padding-left: 10px;
 }

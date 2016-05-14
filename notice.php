@@ -29,7 +29,7 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td>
+					<td class="align-left">
 						공지사항 입니다. 하잇 하잇 하잇
 					</td>
 					<td>
