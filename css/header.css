@@ -1,10 +1,18 @@
-.nav {
+.header{
+	width: 1000px;
 	margin:10px auto;
+	text-align: right;
+}
+.header a{
+	color: black;
+	text-decoration: none;
+}
 
+.nav {
+	width:100%;
 	background-color: gray;
 	border-radius: 30px;
-
-	width: 1000px
+	text-align: initial;
 }
 
 .nav *{
@@ -13,7 +21,7 @@
 
 
 .nav ul{
-	margin: 0px;	
+	margin: 0px;
 }
 .nav ul li{
 	line-height: 50px;

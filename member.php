@@ -9,7 +9,7 @@
 <body>
 
 	<?php
-		include $_SERVER["DOCUMENT_ROOT"]."/html/menu.html";	
+		include $_SERVER["DOCUMENT_ROOT"]."/header.php";
 	?>
 
 	<section class ="board">
