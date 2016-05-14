@@ -15,40 +15,51 @@
 	<section class="calendar">
 		<table>
 			<?php
+
 				
-				//Set Date
+				//Set Date & URL
 				$date = "";
 				if($_GET["y"] === null || $_GET["m"] === null){
 					$date = date("Y-n-1");	
 				}else{
 					$date = $_GET["y"]."-".$_GET["m"]."-1";
 				}
+				$y = (int)date("Y",strtotime($date));
+				$m = (int)date("n",strtotime($date));
+
+				function getURL($fy, $fm){
+					return "index.php?y=".$fy."&m=".$fm;
+				}
+				$url = "";
 
 				//Table Head
 				echo("<thead>");
 				echo("<tr>");
-					echo("<th></th><th></th>");
-					$y = (int)date("Y",strtotime($date));
-					$m = (int)date("n",strtotime($date));
-					$url = "index.php?";
-					$urledit = "";
-					if($m === 1){
-						$urledit = $url."y=".($y-1)."&m=12";
-					}else{
-						$urledit = $url."y=".$y."&m=".($m -1);
-					}
-					echo("<th><a href=".$url."y=".($y-1)."&m=".$m.">&laquo</a> <a href=".$urledit.">&lt</a></th>");
-					echo("<th>".$y."년 ".$m."월</th>");
+				if($m === 1){
+					$url = getURL($y-1, 12);
+				}else{
+					$url = getURL($y,$m-1);
+				}
+				echo("<th colspan='7'>");
+				echo("<a href=".getURL($y-1,$m).">&laquo</a>");
+				echo("<a href=".$url.">&lt</a>");
 
-					if($m === 12){
-						$urledit = $url."y=".($y+1)."&m=1";
-					}else{
-						$urledit = $url."y=".$y."&m=".($m +1);
-					}
 
-					echo("<th><a href=".$urledit.">&gt</a> <a href=".$url."y=".($y+1)."&m=".$m.">&raquo</a></th>");
+				echo($y."년 ".$m."월");
+
+
+				if($m === 12){
+					$url = getURL($y+1, 1);
+				}else{
+					$url = getURL($y,$m+1);
+				}
+
+				echo("<a href=".$url.">&gt</a>");
+				echo("<a href=".getURL($y+1, $m).">&raquo</a>");
+				echo("</th>");
 				echo("</tr>");
 
+				//Table Head - Day
 				echo("<tr>
 					<th>일요일</th><th>월요일</th><th>화요일</th>
 					<th>수요일</th><th>목요일</th><th>금요일</th>
@@ -67,10 +78,11 @@
 				while($bool){
 					echo("<tr>");
 					for($i = 0; $i < 7; ++$i){
-						if($d == 1 && $i == $start){
-							echo("<td>".($d++)."</td>");
-						}else if ($d > 1 && $d <= $end){
-							echo("<td>".($d++)."</td>");
+						if(($d == 1 && $i == $start || ($d > 1 && $d <= $end))){
+							echo("<td>");
+							echo "<p>".$d++."</p>";
+							echoSchedule($d);
+							echo("</td>");
 						}else{
 							echo("<td></td>");
 						}
@@ -81,9 +93,15 @@
 						$bool = false;
 					}
 				}
+				echo "</tbody>";
 
-				?>
-			</tbody>
+				function echoSchedule($d){
+					// TODO
+					// DB에서 일정 데이터 가져와서 표시
+					echo "<a href='#'> TEST </a>";
+				}
+
+			?>
 		</table>
 	</section>
 </body>

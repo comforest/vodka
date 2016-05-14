@@ -12,32 +12,37 @@
 	font-size: 1.5em;
 	padding-bottom: 15px;
 }
-
 .calendar a{
 	text-decoration: none;
 	color:black;
 }
 
-/*요일 부분*/
+/* 토,일 요일 색 칠하기*/
+.calendar table thead tr:last-child th:first-child, .calendar table td:first-child{
+	color: red;
+}
+.calendar table thead tr:last-child th:nth-child(7), .calendar table td:nth-child(7){
+	color: blue;
+}
+
+
+/*테두리 부분*/
 .calendar table thead tr:last-child th, .calendar table tbody td{
 	width : 140px;
 	border:solid black 1px;
 	padding:5px 10px;
 }
 
-
-
 /* 바디 부분*/
 .calendar table tbody td{
-	text-align: left;
 	vertical-align: top;
 	height:90px;
 }
 
-/* 토,일 요일 색 칠하기*/
-.calendar table th:first-child, .calendar table td:first-child{
-	color: red;
+.calendar table tbody p{
+	margin: 0px;
 }
-.calendar table th:nth-child(7), .calendar table td:nth-child(7){
-	color: blue;
+.calendar table tbody a{
+	float: right;
+
 }
