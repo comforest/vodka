@@ -98,6 +98,7 @@
 				function echoSchedule($d){
 					// TODO
 					// DB에서 일정 데이터 가져와서 표시
+					global $y, $m;
 					echo "<a href='#'> TEST </a>";
 				}
 
