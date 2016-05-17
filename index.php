@@ -4,8 +4,13 @@
 <head>
 	<meta charset="utf-8">
 	<title>VoDKa</title>
+
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="\css\header.css">
 	<link rel="stylesheet" type="text/css" href="\css\calendar.css">
+	<script type="text/javascript" src="\javascript\calendar.js"></script>
 </head>
 <body>
 
@@ -15,7 +20,7 @@
 
 	<section class="calendar">
 		<table>
-			<?php
+			<!-- <?php
 
 				
 				//Set Date & URL
@@ -103,7 +108,7 @@
 					echo "<a href='#'> TEST </a>";
 				}
 
-			?>
+			?> -->
 		</table>
 	</section>
 </body>
