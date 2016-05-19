@@ -2,12 +2,27 @@ $(document).ready(function(){
 	var date = new Date();
 	var y = getParameter("y");
 	var m = getParameter("m");
-	if(y != null && m != null){
-		date = new Date(y+"-"+m+"-1");
+	if(y == null || m == null){
+		y=date.getFullYear();
+		m=date.getMonth();
 	}
-	HtmlCalendar(date);
-});
+	WriteCalendar(y,m);
 
+});
+function WriteCalendar(y , m){
+	$.ajax({
+		url:'/calendar.php',
+		type:'post',
+		data:{year:y,month:(m+1)},
+		success:function(data){
+			HtmlCalendar(y ,m, data);
+		},
+		error: function (request, status, error) {
+			console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
+		}
+
+	});	
+}
 function getParameter(param) {
 	var returnValue;
 	var url = location.href;
@@ -22,11 +37,7 @@ function getParameter(param) {
 	return null;
 }
 
-function HtmlCalendar(d){
-	var date = new Date(d);
-	var y = date.getFullYear();
-	var m = date.getMonth();
-	var d = date.getDate();
+function HtmlCalendar(y, m, data){
 
 	var firstDay = (new Date(y,m,1)).getDay();
 
@@ -46,7 +57,27 @@ function HtmlCalendar(d){
 			fm = 0;
 			++ fy;
 		}
-	    	return "HtmlCalendar('"+fy+"-" + (fm+1) + "-1')";
+	    	return "WriteCalendar("+fy+"," + fm+ ")";
+	}
+	var not = 0;
+	function getNotice(d){
+		if(data == null) return "";
+		var str = "";
+		while(true){
+			if(not >= data.length) break;
+			var date = new Date(data[not]["date"]);
+			if(date.getDate() == d){
+				var s = "";
+				if(data[not]["url"] != null){
+					s = "href" + data[not]["url"];
+				}
+				str += "<a"+s+">"+data[not]["text"]+"</a>";
+				++not;
+			}else{
+				break;
+			}
+		}
+		return str;
 	}
 
 	var str = "<table>"
@@ -78,7 +109,9 @@ function HtmlCalendar(d){
 		for(var i = 0; i < 7; ++i){
 			if((writeDate > 1 && writeDate <= lastDate) || (writeDate == 1 && i == firstDay)){
 				str += "<td>"
-				+"<p>"+(writeDate++)+"</p>"
+				+"<p>"+(writeDate)+"</p>"
+				+ getNotice(writeDate);
+				writeDate++;
 				+"</td>";
 			}else{
 				str+="<td></td>";

@@ -19,8 +19,8 @@
 	?>
 
 	<section class="calendar">
-		<table>
-			<!-- <?php
+		<!-- <table>
+			<?php
 
 				
 				//Set Date & URL
@@ -108,8 +108,8 @@
 					echo "<a href='#'> TEST </a>";
 				}
 
-			?> -->
-		</table>
+			?>
+		</table> -->
 	</section>
 </body>
 </html>
