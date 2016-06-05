@@ -10,7 +10,7 @@
 	<nav class="nav">
 		<ul>
 			<li class="nav-icon">
-				<img src="image/icon.png" alt="error">
+				<img src="static/image/icon.png" alt="error">
 				VDK
 			</li>
 			<li><a href="index.php">Home</a></li><!-- 

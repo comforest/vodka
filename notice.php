@@ -4,12 +4,12 @@
 <head>
 	<meta charset="utf-8">
 	<title>VoDKa</title>
-	<link rel="stylesheet" type="text/css" href="\css\header.css">
-	<link rel="stylesheet" type="text/css" href="\css\board.css">
+	<link rel="stylesheet" type="text/css" href="static/css/header.css">
+	<link rel="stylesheet" type="text/css" href="static/css/board.css">
 </head>
 <body>
 	<?php
-		include $_SERVER["DOCUMENT_ROOT"]."/header.php";
+		include $_SERVER["DOCUMENT_ROOT"]."/include/header.inc";
 	?>
 
 	
