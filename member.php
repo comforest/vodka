@@ -32,6 +32,20 @@
 				</tr>
 			</thead>
 			<tbody>
+
+				<?php
+				include $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";
+				if($result = $mysqli->query("SELECT * FROM user order by entry DESC, rank asc, name asc")){
+					while($data = $result->fetch_array(MYSQLI_ASSOC)){
+						echo "<tr>";
+						echo "<td>".$data["name"]."</td>";
+						echo "<td>".$data["major"]."</td>";
+						echo "<td>".$data["student_id"]."</td>";
+						echo "<td>".$data["rank"]."</td>";
+						echo "</tr>";
+					}
+				}
+				?>
 				<tr>
 					<td>
 						이호연

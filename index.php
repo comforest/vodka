@@ -1,4 +1,5 @@
 <?php session_start() ?>
+<!-- 메인 페이지 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,8 +19,6 @@
 		include $_SERVER["DOCUMENT_ROOT"]."/include/header.inc";
 	?>
 
-	<section class="calendar">
-		
-	</section>
+	<section class="calendar"></section>
 </body>
 </html>

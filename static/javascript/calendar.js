@@ -1,3 +1,9 @@
+/*
+*	달력 그리기
+*	calendar class 내부에 그림
+*/
+
+
 $(document).ready(function(){
 	var date = new Date();
 	var y = getParameter("y");
@@ -9,20 +15,11 @@ $(document).ready(function(){
 	WriteCalendar(y,m);
 
 });
-function WriteCalendar(y , m){
-	$.ajax({
-		url:'/calendar.php',
-		type:'post',
-		data:{year:y,month:(m+1)},
-		success:function(data){
-			HtmlCalendar(y ,m, data);
-		},
-		error: function (request, status, error) {
-			console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
-		}
 
-	});	
-}
+/*	getParameter
+*	목적 : GET 값 가져오기
+*	param : param : GET 키값
+*/
 function getParameter(param) {
 	var returnValue;
 	var url = location.href;
@@ -37,6 +34,29 @@ function getParameter(param) {
 	return null;
 }
 
+
+/*	WriteCalendar
+*	목적 : 달력 그리기(AJAX 호출)
+*	calendar class 내부에 그림
+*/
+function WriteCalendar(y , m){
+	$.ajax({
+		url:'/action/calendar.php',
+		type:'post',
+		data:{year:y,month:(m+1)},
+		success:function(data){
+			HtmlCalendar(y ,m, data);
+		},
+		error: function (request, status, error) {
+			console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
+		}
+
+	});	
+}
+/*	HtmlCalendar
+*	목적 : 달력 그리기(AJAX 이벤트 함수)
+*	calendar class 내부에 그림
+*/
 function HtmlCalendar(y, m, data){
 
 	var firstDay = (new Date(y,m,1)).getDay();

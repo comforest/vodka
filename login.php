@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<form action="login_action.php"  method="POST" >
+	<form action="action/login_action.php"  method="POST" >
 		ID : <input id="input-id" type="text" name="id" required><br>
 		PASSWORD : <input id="input-pw" type="password" name="pass" required><br>
 		<input type="submit" value="로그인">

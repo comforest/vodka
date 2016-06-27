@@ -1,5 +1,6 @@
 data/*
 !data/vodka/
+sdata/*
 
 # Created by https://www.gitignore.io/api/windows,sublimetext
 
