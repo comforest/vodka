@@ -113,6 +113,32 @@ class User{
 		}
 	}
 
+	/*	AppendPhoneHypen
+	*	purpose : 전화번호에 - 붙이기
+	*/
+	public static function AppendPhoneHypen($str){
+		return 	substr($str,0,3)."-".substr($str,3,4)."-".substr($str, 7);
+	}
+	/*	RemovePhoneHypen
+	*	purpose : 전화번호에 - 빼기
+	*/
+	public static function RemovePhoneHypen($str){
+		return str_replace("-", "", $str);
+	}
+
+
+	/*	AppendPhoneHypen
+	*	purpose :  기수 단위 붙이기
+	*/
+	public static function AppendClass($str){
+		return $str."기";
+	}
+	/*	RemovePhoneHypen
+	*	purpose : 기수 단위 제거
+	*/
+	public static function RemoveClass($str){
+		return str_replace("기", "", $str);
+	}
 }
 
 

@@ -44,7 +44,7 @@ try {
 						$arr[$i-2][$f] = User::GenderStrtoInt($str);
 						break;
 					case "기수":
-						$arr[$i-2][$f] = substr($str,0,strlen($str)-3);
+						$arr[$i-2][$f] = User::RemoveClass($str);
 						break;
 					case "등급":
 						$arr[$i-2][$f] = User::RankStrtoInt($str);
@@ -53,7 +53,7 @@ try {
 						$arr[$i-2][$f] = User::EntryStrtoInt($str);
 						break;
 					case "전화번호":
-						$arr[$i-2][$f] = str_replace("-", "", $str);
+						$arr[$i-2][$f] = User::RemovePhoneHypen($str);
 						break;
 					default:
 						$arr[$i-2][$f] = $str;
@@ -82,7 +82,6 @@ try {
 			}
 			$queryStr = substr($queryStr,1,strlen($queryStr));
 			$query .= $queryStr." WHERE user_id = ".$user["user_id"];
-			echo $query."<br>";
 		}else if(count($user) == 0){
 			$query="INSERT into user(ID,password,".$queryStr.") values(\"".$arr[$i]["student_id"]."\",\"".$arr[$i]["student_id"]."\",".$queryStr2.")";
 			$queryStr;
@@ -102,9 +101,8 @@ try {
 			$queryStr2 = substr($queryStr2,1,strlen($queryStr2));
 		}
 
-		$mysqli->query($query);
+		//$mysqli->query($query);
 	}
-
 
 
 
