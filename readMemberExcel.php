@@ -101,7 +101,7 @@ try {
 			$queryStr2 = substr($queryStr2,1,strlen($queryStr2));
 		}
 
-		//$mysqli->query($query);
+		$mysqli->query($query);
 	}
 
 
