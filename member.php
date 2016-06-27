@@ -29,37 +29,32 @@
 					<th>
 						등급
 					</th>
+					<th>
+						활동 지역
+					</th>
+					<th>
+						활동 여부	
+					</th>
 				</tr>
 			</thead>
 			<tbody>
 
 				<?php
+				include $_SERVER["DOCUMENT_ROOT"]."/function/userInfo.php";
 				include $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";
 				if($result = $mysqli->query("SELECT * FROM user order by entry DESC, rank asc, name asc")){
 					while($data = $result->fetch_array(MYSQLI_ASSOC)){
 						echo "<tr>";
 						echo "<td>".$data["name"]."</td>";
 						echo "<td>".$data["major"]."</td>";
-						echo "<td>".$data["student_id"]."</td>";
-						echo "<td>".$data["rank"]."</td>";
+						echo "<td>".(User::getShortStudentID($data["student_id"]))."</td>";
+						echo "<td>".(User::RankInttoStr($data["rank"]))."</td>";
+						echo "<td>".$data["location"]."</td>";
+						echo "<td>".User::EntryInttoStr($data["entry"])."</td>";
 						echo "</tr>";
 					}
 				}
 				?>
-				<tr>
-					<td>
-						이호연
-					</td>
-					<td>
-						컴퓨터 과학과
-					</td>
-					<td>
-						15
-					</td>	
-					<td>
-						달
-					</td>
-				</tr>
 			</tbody>
 		</table>
 	</section>

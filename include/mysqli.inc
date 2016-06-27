@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"]."/sdata/mysql_data.php";	
+include $_SERVER["DOCUMENT_ROOT"]."/sdata/mysql_data.php";	
 $mysqli = new mysqli($mysql_server, $mysql_id, $mysql_pass, $mysql_db);
  
 /* check connection */

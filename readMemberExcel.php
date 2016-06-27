@@ -28,68 +28,83 @@ try {
 
 	$field = array_flip($field);
 
+	require_once $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";	
+	require_once $_SERVER["DOCUMENT_ROOT"]."/function/userInfo.php";
 
-	$queryStr = "";
-	$tdarr = [];
-	for($i = 0; getCoulmnIndex($i) != $maxCol; ++$i){
-		$th = $sheet->getCell(getCoulmnIndex($i)."1");
-		$th = (string)$th;
-		if(isset($field[$th])){
-			$tdarr[] = getCoulmnIndex($i);
-			$queryStr.= ",". $field[$th];
+	$arr = array();
+	for ($i = 2 ; $i <= $maxRow ; $i++) { // 두번째 행부터 읽는다
+		for($j = 0; getCoulmnIndex($j) != $maxCol; $j ++){
+			$c = getCoulmnIndex($j);
+			$head = (string)$sheet->getCell($c."1")->getValue();
+			if(isset($field[$head])){
+				$f = $field[$head];
+				$str = getCoulmnValue($sheet, $c.$i);
+				switch($head){
+					case "성별":
+						$arr[$i-2][$f] = User::GenderStrtoInt($str);
+						break;
+					case "기수":
+						$arr[$i-2][$f] = substr($str,0,strlen($str)-3);
+						break;
+					case "등급":
+						$arr[$i-2][$f] = User::RankStrtoInt($str);
+						break;
+					case "활동 여부":
+						$arr[$i-2][$f] = User::EntryStrtoInt($str);
+						break;
+					case "전화번호":
+						$arr[$i-2][$f] = str_replace("-", "", $str);
+						break;
+					default:
+						$arr[$i-2][$f] = $str;
+						break;
+				}
+			}
 		}
 	}
-	$queryStr = substr($queryStr, 1);
+	for($i = 0; $i < count($arr); ++$i){
 
-	require_once $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";	
-
-	for ($i = 2 ; $i <= $maxRow ; $i++) { // 두번째 행부터 읽는다
-		$queryStr2 = "";
-		foreach($tdarr as $c){
-			$str = getCoulmnValue($sheet, $c.$i);
-			$id;
-			switch($sheet->getCell($c."1")->getValue()){
-				case "성별":
-					if($str=="남자"){
-						$str = 1;
-					}else if($str == "여자"){
-						$str = 0;
-					}
-					break;
-				case "기수":
-					$str = substr($str,0,strlen($str)-3);
-					break;
-				case "등급":
-					$str = changeRank($str);
-					break;
-				case "학번":
-					$id = $str;
-					$str = "\"".$str."\"";
-					break;
-				case "활동 여부":
-					if($str == "O"){
-						$str = 1;
-					}else{
-						$str = 0;
-					}
-					break;
-				case "전화번호":
-					$str = str_replace("-", "", $str);
-				default:
-					$str = "\"".$str."\"";
-					break;
+		$query = "";
+		$user = User::FindByStudentID($arr[$i]["student_id"]);
+		if(count($user) > 0){
+			$query = "UPDATE user SET ";
+			$queryStr = "";
+			foreach($arr[$i] as $k => $v){
+				$queryStr .= ",".$k."=";
+				switch($k){
+					case "gender": case "class": case "rank": case "entry":
+						$queryStr .= $v;
+						break;
+					default:
+						$queryStr .= "\"".$v."\"";
+						break;
+				}
 			}
-			$queryStr2 .= ",".$str;
-		} 
-		$queryStr2 = substr($queryStr2, 1);
-		$query="Insert into user(ID,password,".$queryStr.") values(\"".$id."\",\"".$id."\",".$queryStr2.")";
-		echo $query."<br>";
+			$queryStr = substr($queryStr,1,strlen($queryStr));
+			$query .= $queryStr." WHERE user_id = ".$user["user_id"];
+			echo $query."<br>";
+		}else if(count($user) == 0){
+			$query="INSERT into user(ID,password,".$queryStr.") values(\"".$arr[$i]["student_id"]."\",\"".$arr[$i]["student_id"]."\",".$queryStr2.")";
+			$queryStr;
+			$queryStr2;
+			foreach($arr[$i] as $k => $v){
+				$queryStr .= ",".$k;
+				switch($k){
+					case "gender": case "class": case "rank": case "entry":
+						$queryStr .= ",".$v;
+						break;
+					default:
+						$queryStr .= ",\"".$v."\"";
+						break;
+				}
+			}
+			$queryStr = substr($queryStr,1,strlen($queryStr));
+			$queryStr2 = substr($queryStr2,1,strlen($queryStr2));
+		}
+
 		$mysqli->query($query);
 	}
 
-	// if($result = $mysql->query($query)){
-
-	// }
 
 
 
@@ -121,24 +136,6 @@ function getCoulmnValue($sheet, $s){
 		return $cell->getOldCalculatedValue();
 	}
 	return $str;
-}
-
-
-/*	changeRank
-*	purpose : 숫자 => 보드카 등급
-*/
-function changeRank($s){
-	switch ($s) {
-	case "해":
-		return 1;			
-	case "달";
-		return 2;
-	case "별";
-		return 3;
-	case "구름";
-		return 4;
-	}
-	return 5;
 }
 
 /*	getCoulmnIndex
