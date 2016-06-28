@@ -5,17 +5,6 @@ header( 'Content-type: application/vnd.ms-excel' );
 header( 'Content-Disposition: inline; filename="listall_'.date('Ymd').'.xls"' );
 header( 'Content-Description: sitePHPbasic Generated Data' );
 
-    $field["name"] = "이름";
-    $field["gender"] = "성별";
-    $field["student_id"] = "학번";
-    $field["colleage"] = "단과대";
-    $field["major"] = "전공";
-    $field["phone"] = "전화번호";
-    $field["location"] = "활동지역";
-    $field["class"] = "기수";
-    $field["rank"] = "등급";
-    $field["entry"] = "활동 여부";
-
 echo "
     <table>
     <tr>
