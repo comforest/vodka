@@ -17,24 +17,12 @@
 		<table>
 			<thead>
 				<tr>
-					<th>
-						이름
-					</th>
-					<th>
-						학과
-					</th>
-					<th>
-						학번
-					</th>
-					<th>
-						등급
-					</th>
-					<th>
-						활동 지역
-					</th>
-					<th>
-						활동 여부	
-					</th>
+					<th> 이름 </th>
+					<th> 학과 </th>
+					<th> 학번 </th>
+					<th> 등급 </th>
+					<th> 활동 지역 </th>
+					<th> 활동 여부 </th>
 				</tr>
 			</thead>
 			<tbody>
