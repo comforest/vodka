@@ -1,13 +1,15 @@
 <?php
 	session_start();
-	$id = "admin";
-	$pass = "1234";
-	if(strcmp($id,$_POST["id"]) == 0 && strcmp($pass, $_POST["pass"]) == 0){
-		$_SESSION['user'] = $id;
-		header('Location: '. $_POST["url"]);
-		echo $_POST["url"];
-	}else{
-		echo $_POST["id"];
-		echo $_POST["pass"];
+
+	include $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";
+	$query = "SELECT * FROM user Where id =\"".$_POST["id"]."\" and password = \"".$_POST["pass"]."\"";
+	if($result = $mysqli->query($query)){
+		if($data = $result->fetch_array(MYSQLI_ASSOC)){
+			$_SESSION['user'] = $data['user_id'];
+			$_SESSION['rank'] = $data['rank'];
+			header('Location: '. $_POST["url"]);
+		}else{
+			//TODO 로그인 실패
+		}
 	}
 ?>
