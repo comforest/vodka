@@ -145,5 +145,5 @@ function HtmlCalendar(y, m, data){
 
 	str += "</tbody>";
 
-	$(".calendar").html(str);
+	$(".calendar article").html(str);
 }

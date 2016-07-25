@@ -4,8 +4,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>VoDKa</title>
-	<link rel="stylesheet" type="text/css" href="static/css/header.css">
-	<link rel="stylesheet" type="text/css" href="static/css/board.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/header.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/board.css">
 </head>
 <body>
 	<?php

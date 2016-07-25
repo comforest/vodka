@@ -10,8 +10,8 @@
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="static/css/header.css">
-	<link rel="stylesheet" type="text/css" href="static/css/calendar.css">
-	<script type="text/javascript" src="static/javascript/calendar.js"></script>
+	<link rel="stylesheet" type="text/css" href="calendar.css">
+	<script type="text/javascript" src="calendar.js"></script>
 </head>
 <body>
 
@@ -19,6 +19,13 @@
 		include $_SERVER["DOCUMENT_ROOT"]."/include/header.inc";
 	?>
 
-	<section class="calendar"></section>
+	<section class="calendar">
+		<article></article>
+		<?php
+			if(isset($_SESSION["rank"]) && $_SESSION["rank"] >= 2){
+				echo '<a class="editCalendar" href=""><p>일정 수정</p></a>';
+			}
+		?>
+	</section>
 </body>
 </html>

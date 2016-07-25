@@ -1,10 +1,11 @@
 .calendar{
-	width:100%;
+	width:1000px;
+	margin: 30px auto;
 }
 
 .calendar table{
 	width: 900px;
-	margin: 30px auto;
+	margin: 0px 50px;
 }
 
 /*년월일 표시*/
@@ -44,5 +45,9 @@
 }
 .calendar table tbody a{
 	float: right;
+}
 
+.calendar .editCalendar{
+	float: right;
+	padding-right: 50px;
 }

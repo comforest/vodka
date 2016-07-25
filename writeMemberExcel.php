@@ -1,6 +1,6 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"]."/Classes/PHPExcel.php";
-require_once $_SERVER["DOCUMENT_ROOT"]."/Classes/PHPExcel/IOFactory.php";
+require_once $_SERVER["DOCUMENT_ROOT"]."/include/PHPExcel.php";
+require_once $_SERVER["DOCUMENT_ROOT"]."/include/PHPExcel/IOFactory.php";
 header( 'Content-type: application/vnd.ms-excel' ); 
 header( 'Content-Disposition: inline; filename="listall_'.date('Ymd').'.xls"' );
 header( 'Content-Description: sitePHPbasic Generated Data' );
@@ -20,7 +20,7 @@ echo "
         <td>활동여부</td>
     </tr>
     ";
-include $_SERVER["DOCUMENT_ROOT"]."/function/userInfo.php";
+include $_SERVER["DOCUMENT_ROOT"]."/include/userInfo.php";
 include $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";
 if($result = $mysqli->query("SELECT * FROM user order by entry DESC, rank asc, name asc")){
     while($data = $result->fetch_array(MYSQLI_ASSOC)){
