@@ -2,6 +2,7 @@
 	width: 1000px;
 	margin:10px auto;
 	text-align: right;
+	margin-bottom: 30px;
 }
 .header a{
 	color: black;
@@ -57,4 +58,9 @@
 }
 .nav li:hover:not(.nav-icon) a{
 	background-color: #900;
+}
+
+body>section{
+	width:900px;
+	margin: 0 auto;
 }
