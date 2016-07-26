@@ -1,6 +1,18 @@
 <?php
 // User 정보 처리와 관련 된 Class 및 함수들
 class User{
+	/*	FindByID
+	*	purpose : DB ID로 User 찾기
+	*	reuturn : DB id가 $i인 User
+	*/
+	public static function FindByID($i){
+		include $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";
+		$arr = array();
+		if($result = $mysqli->query("SELECT * FROM user Where user_id = $i")){
+			return $result->fetch_array(MYSQLI_ASSOC);
+		}
+		return null;
+	}
 	/*	FindByName
 	*	purpose : 이름으로 User 찾기
 	*	reuturn : 이름이 $str인 User array
@@ -11,7 +23,7 @@ class User{
 		if($result = $mysqli->query("SELECT * FROM user Where name =\"".$str."\"")){
 			$i = 0;
 			while($data = $result->fetch_array(MYSQLI_ASSOC)){
-				$arr[$i][] = $data;
+				$arr[$i] = $data;
 				++$i;
 			}
 		}

@@ -154,6 +154,7 @@
 
 
 		foreach ($total as $totalK => $totalV) {
+			echo "<br><br>";
 			foreach ($totalV as $key => $value) {
 				ksort($value);
 				echo "<p>$key $totalK 분표</p>

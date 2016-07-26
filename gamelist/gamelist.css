@@ -1,0 +1,14 @@
+.gamelist table td:last-child{
+	border:none;
+}
+.gamelist table td:nth-last-child(2){
+	border-right:none;
+}
+
+.addGame{
+	width: 300px;
+	height: 100px;
+
+	background: white;
+	padding: 40px;
+}
