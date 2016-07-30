@@ -10,7 +10,7 @@
 	if($_SESSION["rank"]<=2){
 		$query = "SELECT * FROM user";
 	}else{
-		$query = "SELECT name, major,student_id,rank,location,entry FROM user";
+		$query = "SELECT name, gender, colleage, major,student_id,rank,location,entry FROM user";
 	}
 	$query .= " order by entry DESC, rank asc, name asc";
 	if($result = $mysqli->query($query)){

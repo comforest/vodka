@@ -1,7 +1,10 @@
-var json;
-var prevKey;
+// import /static/javascript/function.js
 
+var json;
+
+	document.write("<script src='/static/javascript/function.js'></script>");
 $(document).ready(function(){
+
 	$.ajax({
 		url:'getMember.php',
 		type:'post',
@@ -9,7 +12,6 @@ $(document).ready(function(){
 		success:function(data){
 			json = data;
 			writeList();
-			writeChart();
 		},
 		error: function (request, status, error) {
 			console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
@@ -18,6 +20,7 @@ $(document).ready(function(){
 
 });
 
+var prevKey;
 function sortJson(key){
 	if(prevKey == key){
 		prevKey ="";
@@ -31,9 +34,11 @@ function sortJson(key){
 
 
 function writeList(){
+
 	var sarr = {name:"이름", student_id:"학번", major:"전공",location:"활동 지역",rank:"등급",entry:"활동 여부",gender: "성별",colleage:"단과대",phone:"전화번호",class:"기수"};
 
-	var str = "<table>";
+	var str = "<a onclick=\"SwitchChart()\">차트 보기</a>";
+	str += "<table>";
 	str +=	"<thead>";
 	str +=	"<tr>";
 	for(key in json[0]){
@@ -54,58 +59,12 @@ function writeList(){
 	$("#memberList").html(str);
 }
 
-function writeChart(json){
-
-}
-
-
 function SwitchChart(){
-	$(".chart").show();
-	$(".memberList").hide();
+	$("#chart").show();
+	$("#memberList").hide();
 }
 
 function SwitchList(){
-	$(".chart").hide();
-	$(".memberList").show();
-}
-
-
-
-
-/* mergeSort & merge
-*	param : arr - json Array
-*			key - json Array에서 비교할 key
-*			s - 1 오름차순, -1 내림차순
-*	retrun : 정렬된 배열
-*/
-function mergeSort(arr, key,s)
-{
-    if (arr.length < 2)
-        return arr;
-
-    var middle = parseInt(arr.length / 2);
-    var left   = arr.slice(0, middle);
-    var right  = arr.slice(middle, arr.length);
-
-    return merge(mergeSort(left,key,s), mergeSort(right,key,s),key,s);
-}
-function merge(left, right, key,s)
-{
-    var result = [];
-
-    while (left.length && right.length) {
-        if (left[0][key].localeCompare(right[0][key])*s <= 0) {
-            result.push(left.shift());
-        } else {
-            result.push(right.shift());
-        }
-    }
-
-    while (left.length)
-        result.push(left.shift());
-
-    while (right.length)
-        result.push(right.shift());
-
-    return result;
+	$("#chart").hide();
+	$("#memberList").show();
 }

@@ -1,5 +1,5 @@
 <?php
-include $_SERVER["DOCUMENT_ROOT"]."/security/mysql_data.php";	
+include $_SERVER["DOCUMENT_ROOT"]."/include/security/mysql_data.php";	
 $mysqli = new mysqli($mysql_server, $mysql_id, $mysql_pass, $mysql_db);
  
 /* check connection */

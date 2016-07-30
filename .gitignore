@@ -1,6 +1,6 @@
 data/*
 !data/vodka/
-security/*
+include/security/*
 
 # Created by https://www.gitignore.io/api/windows,sublimetext
 
