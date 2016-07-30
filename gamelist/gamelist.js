@@ -1,3 +1,45 @@
+var json;
+document.write("<script src='/static/javascript/function.js'></script>");
+
+$(document).ready(function(){
+	$.ajax({
+		url:'getGamelist.php',
+		type:'post',
+		success:function(data){
+		console.log(data);
+			json = data;
+			writeList();
+		},
+		error: function (request, status, error) {
+			console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
+		}
+	});
+});
+
+function writeList(){
+	var str = "";
+	$.each(json,function(i,object){
+	str += '<tr>';
+	str += '<td>'+object["game"]+'</td>';
+	str += '<td>'+object["user"]+'</td>';
+	str += '<td>'+object["note"]+'</td>';
+	str += '</tr>';
+	});
+	$("#list").html(str);
+}
+
+var prevKey;
+function sortJson(key){
+	if(prevKey == key){
+		prevKey ="";
+		json = mergeSort(json, key, -1);
+	}else{
+		prevKey = key;
+		json = mergeSort(json, key, 1);
+	}
+	writeList();
+}
+
 function showAddGame(){
     var left = Math.ceil((window.screen.width - 400)/2);
     var top = Math.ceil((window.screen.height - 200)/2);

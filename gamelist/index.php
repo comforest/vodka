@@ -32,32 +32,19 @@
 		<table>
 			<thead>
 				<tr>
-					<th>
+					<th onclick="sortJson('game')">
 						게임 이름
 					</th>
-					<th>
+					<th onclick="sortJson('user')">
 						소유자
 					</th>
-					<th>
+					<th onclick="sortJson('note')">
 						비고
 					</th>
 				</tr>
 			</thead>
-			<tbody>
-			<?php
-				require_once $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";
-				require_once $_SERVER["DOCUMENT_ROOT"]."/include/userInfo.php";
-				if($result = $mysqli->query("SELECT * from game ORDER BY name ASC")){
-					while($data = $result->fetch_array(MYSQLI_ASSOC)){
-						echo '<tr>';
-						echo '<td>'.$data["name"].'</td>';
-						echo '<td>'.USER::FindByID($data["user_id"])["name"].'</td>';
-						echo '<td>'.$data["note"].'</td>';
-						echo "<td><a>X</a></td>";
-						echo '</tr>';
-					}
-				}
-			?>
+			<tbody id="list">
+			
 			</tbody>
 		</table>
 	</section>

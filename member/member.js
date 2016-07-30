@@ -1,14 +1,10 @@
-// import /static/javascript/function.js
-
 var json;
+document.write("<script src='/static/javascript/function.js'></script>");
 
-	document.write("<script src='/static/javascript/function.js'></script>");
 $(document).ready(function(){
-
 	$.ajax({
 		url:'getMember.php',
 		type:'post',
-		data:{},
 		success:function(data){
 			json = data;
 			writeList();

@@ -17,7 +17,6 @@
 	<link rel="stylesheet" type="text/css" href="/static/css/header.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/board.css">
 	
-	<script type="text/javascript" src="function.js"></script>
 	<script type="text/javascript" src="member.js"></script>
 </head>
 <body>
