@@ -22,9 +22,13 @@
 	<section class="addGame">
 		게임 이름 : <input type="text" name="name"><br>
 		비고 : <input type="text" name="note"><br>
+
 		<?php
 		if($_SESSION["rank"] <= 2){
-			echo '소유자 : <input type="text" name="user">';
+			echo '소유자<br>';
+			echo '<input type="radio" name="user" value="동아리">동아리';
+			echo '<input type="radio" name="user" value="이호연">이호연';
+			echo '<input type="text" name="user">';
 			echo '<input type="submit" value="찾기" onclick="searchUser()"><br>';
 			echo '<article class = "userList"></article>';
 		}
