@@ -17,6 +17,7 @@
 		while($data = $result->fetch_array(MYSQLI_ASSOC)){
 			$arr = array();
 			foreach($data as $key => $value){
+				if($key == "user_id" || $key == "ID" || $key == "password")	continue;
 				switch($key){
 					case "gender":
 						$value = User::GenderInttoStr($value);
@@ -38,6 +39,8 @@
 							$value = User::getShortStudentID($value);
 						}
 						break;
+					case "user_id": case "ID": case "password":
+						continue;
 				}
 				$arr[$key] = $value;
 			}
