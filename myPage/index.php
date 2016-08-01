@@ -68,10 +68,10 @@
 		<table>
 			<thead>
 				<tr>
-					<th onclick="sortJson('game')">
+					<th>
 						게임 이름
 					</th>
-					<th onclick="sortJson('note')">
+					<th>
 						비고
 					</th>
 				</tr>

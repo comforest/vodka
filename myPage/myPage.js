@@ -1,3 +1,13 @@
+// document.write("<script src='/static/javascript/function.js'></script>");
+// $(document).ready(function(){
+// 	$.each(["game","note"],function(key, value){
+// 		$("#"+value).click(function(){
+// 			json = sortJson(json, $(this).attr('id'));
+// 			writeList();
+// 		});
+// 	});
+// });
+
 function editPhone() {
 	var txt = $("input[name='phone']").val();
 	var regExp = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;

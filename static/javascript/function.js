@@ -1,3 +1,21 @@
+var prevKey;
+
+/* sortJson
+*   param : json - 배열
+*           key - 정렬 기준인 key
+*           func - 배열 후 실행 할 함수
+*/
+function sortJson(json, key){
+    if(prevKey == key){
+        prevKey ="";
+        json = mergeSort(json, key, -1);
+    }else{
+        prevKey = key;
+        json = mergeSort(json, key, 1);
+    }
+    return json;
+}
+
 
 /* mergeSort & merge
 *	param : arr - json Array
@@ -5,8 +23,7 @@
 *			s - 1 오름차순, -1 내림차순
 *	retrun : 정렬된 배열
 */
-function mergeSort(arr, key,s)
-{
+function mergeSort(arr, key,s){
     if (arr.length < 2)
         return arr;
 
@@ -16,8 +33,7 @@ function mergeSort(arr, key,s)
 
     return merge(mergeSort(left,key,s), mergeSort(right,key,s),key,s);
 }
-function merge(left, right, key,s)
-{
+function merge(left, right, key,s){
     var result = [];
 
     while (left.length && right.length) {

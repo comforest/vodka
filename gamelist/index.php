@@ -33,13 +33,13 @@
 		<table>
 			<thead>
 				<tr>
-					<th onclick="sortJson('game')">
+					<th id="game">
 						게임 이름
 					</th>
-					<th onclick="sortJson('user')">
+					<th id="user">
 						소유자
 					</th>
-					<th onclick="sortJson('note')">
+					<th id="note">
 						비고
 					</th>
 				</tr>

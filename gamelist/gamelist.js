@@ -6,13 +6,19 @@ $(document).ready(function(){
 		url:'getGamelist.php',
 		type:'post',
 		success:function(data){
-		console.log(data);
 			json = data;
 			writeList();
 		},
 		error: function (request, status, error) {
 			console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
 		}
+	});
+
+	$.each(["game","user","note"],function(key, value){
+		$("#"+value).click(function(){
+			json = sortJson(json, $(this).attr('id'));
+			writeList();
+		});
 	});
 });
 
@@ -26,18 +32,6 @@ function writeList(){
 	str += '</tr>';
 	});
 	$("#list").html(str);
-}
-
-var prevKey;
-function sortJson(key){
-	if(prevKey == key){
-		prevKey ="";
-		json = mergeSort(json, key, -1);
-	}else{
-		prevKey = key;
-		json = mergeSort(json, key, 1);
-	}
-	writeList();
 }
 
 function showAddGame(){
