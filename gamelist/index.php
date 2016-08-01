@@ -1,3 +1,4 @@
+<!-- GameList 페이지 -->
 <?php session_start() ?>
 <!DOCTYPE html>
 <html>

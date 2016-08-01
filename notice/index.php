@@ -1,3 +1,4 @@
+<!-- 공지사항 페이지 -->
 <?php session_start() ?>
 <!DOCTYPE html>
 <html>

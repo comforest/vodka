@@ -1,7 +1,11 @@
+<!-- Member 페이지 -->
 <?php
 	session_start();
 	if(!isset($_SESSION["user"])){
-		header("Location: ".$_SERVER['DOCUMENT_ROOT']);
+		echo "<script>
+    	alert(\"로그인을 하셔야 이용가능합니다.\");
+    	location.href = \"/login.php\";
+    	</script>";
 	}
 ?>
 <!DOCTYPE html>

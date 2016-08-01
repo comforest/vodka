@@ -21,7 +21,7 @@
 			 --><li><a href="/notice">Notice</a></li><!-- 
 			 --><li><a href="/gamelist">Board Game List</a></li><!-- 
 			 --><li><a href="/member">Member List</a></li><!-- 
-			 --><li><a href="">Free Board</a></li><!-- 
+			 --><li><a href="/myPage">My Page</a></li><!-- 
 			 --><li><a href="">About</a></li>
 		</ul>
 	</nav>

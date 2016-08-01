@@ -1,5 +1,6 @@
-<?php session_start() ?>
 <!-- 메인 페이지 -->
+<?php session_start() ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,7 @@
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="static/css/header.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/header.css">
 	<link rel="stylesheet" type="text/css" href="calendar.css">
 	<script type="text/javascript" src="calendar.js"></script>
 </head>
