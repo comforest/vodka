@@ -40,7 +40,7 @@ function getParameter(param) {
 */
 function WriteCalendar(y , m){
 	$.ajax({
-		url:'/action/calendar.php',
+		url:'calendar.php',
 		type:'post',
 		data:{year:y,month:(m+1)},
 		success:function(data){

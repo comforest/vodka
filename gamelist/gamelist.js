@@ -73,7 +73,7 @@ $.ajax({
 
 function addGame(){
 $.ajax({
-	url:'/action/addGame.php',
+	url:'addGame/addGame.php',
 	type:'post',
 	data:{name:$("input[name=\"name\"]").val(),note:$("input[name=\"note\"]").val()},
 	success:function(data){

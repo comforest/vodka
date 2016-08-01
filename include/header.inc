@@ -5,7 +5,7 @@
 <header class="header">
 	<?php 
 		if(!isset($_SESSION['user'])){
-			echo '<a href="/login.php">로그인</a>';
+			echo '<a href="/login">로그인</a>';
 		}else{
 			echo '<a href="/action/logout_action.php">로그아웃</a>';
 		}

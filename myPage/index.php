@@ -4,7 +4,7 @@
 	if(!isset($_SESSION["user"])){
 		echo "<script>
     	alert(\"로그인을 하셔야 이용가능합니다.\");
-    	location.href = \"/login.php\";
+    	location.href = \"/login\";
     	</script>";
 	}
 ?>
