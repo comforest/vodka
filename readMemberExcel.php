@@ -83,25 +83,26 @@ try {
 			$queryStr = substr($queryStr,1,strlen($queryStr));
 			$query .= $queryStr." WHERE user_id = ".$user["user_id"];
 		}else if(count($user) == 0){
-			$query="INSERT into user(ID,password,".$queryStr.") values(\"".$arr[$i]["student_id"]."\",\"".$arr[$i]["student_id"]."\",".$queryStr2.")";
-			$queryStr;
-			$queryStr2;
+			$queryStr = "";
+			$queryStr2 = "";
 			foreach($arr[$i] as $k => $v){
 				$queryStr .= ",".$k;
 				switch($k){
 					case "gender": case "class": case "rank": case "entry":
-						$queryStr .= ",".$v;
+						$queryStr2 .= ",".$v;
 						break;
 					default:
-						$queryStr .= ",\"".$v."\"";
+						$queryStr2 .= ",\"".$v."\"";
 						break;
 				}
 			}
 			$queryStr = substr($queryStr,1,strlen($queryStr));
 			$queryStr2 = substr($queryStr2,1,strlen($queryStr2));
+			$query="INSERT into user(ID,password,".$queryStr.") values(\"".$arr[$i]["student_id"]."\",\"".$arr[$i]["student_id"]."\",".$queryStr2.")";
 		}
 
 		$mysqli->query($query);
+		echo $query."<br>";
 	}
 
 
