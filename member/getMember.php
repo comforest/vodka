@@ -12,7 +12,7 @@
 	}else{
 		$query = "SELECT name, gender, colleage, major,student_id,rank,location,entry FROM user";
 	}
-	$query .= " order by entry DESC, rank asc, name asc";
+	$query .= " where rank <> 0 order by entry DESC, rank asc, name asc";
 	if($result = $mysqli->query($query)){
 		while($data = $result->fetch_array(MYSQLI_ASSOC)){
 			$arr = array();

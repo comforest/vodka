@@ -16,25 +16,28 @@
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="../gamelist.css">
-	<script type="text/javascript" src="../gamelist.js"></script>
+	<script type="text/javascript" src="addGame.js"></script>
 </head>
 <body>
-	<section class="addGame">
+	<form class="addGame" onsubmit="addGame();return false;">
 		게임 이름 : <input type="text" name="name"><br>
 		비고 : <input type="text" name="note"><br>
 
 		<?php
 		if($_SESSION["rank"] <= 2){
-			echo '소유자<br>';
+			echo '소유자';
 			echo '<input type="radio" name="user" value="동아리">동아리';
 			echo '<input type="radio" name="user" value="이호연">이호연';
+			echo '<input type="radio" name="user" value="검색">검색하기';
+			echo '<form id="userlist" onsubmit="searchUser();return false;">';
 			echo '<input type="text" name="user">';
-			echo '<input type="submit" value="찾기" onclick="searchUser()"><br>';
-			echo '<article class = "userList"></article>';
+			echo '<input type="submit" value="찾기"><br>';
+			echo '<article id="list"></article>';
+			echo '</form>';
 		}
 		?>
 
-		<input type="submit" value="확인" onclick="addGame()">
-	</section>
+		<input type="submit" value="확인">
+	</form>
 </body>
 </html>
