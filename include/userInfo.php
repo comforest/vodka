@@ -40,6 +40,16 @@ class User{
 		}
 		return null;
 	}
+
+	public static function GetAdmin(){
+		include $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";
+		if($result = $mysqli->query("SELECT user_id,name,rank FROM user Where rank = 0")){
+			return $result->fetch_array(MYSQLI_ASSOC);
+		}
+		return null;
+	}
+
+
 	/*	RankStrtoInt
 	*	purpose : 숫자 => 보드카 등급
 	*/

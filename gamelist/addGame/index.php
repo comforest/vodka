@@ -19,7 +19,7 @@
 	<script type="text/javascript" src="addGame.js"></script>
 </head>
 <body>
-	<form class="addGame" onsubmit="addGame();return false;">
+	<section class="addGame">
 		게임 이름 : <input type="text" name="name"><br>
 		비고 : <input type="text" name="note"><br>
 
@@ -27,17 +27,17 @@
 		if($_SESSION["rank"] <= 2){
 			echo '소유자';
 			echo '<input type="radio" name="user" value="동아리">동아리';
-			echo '<input type="radio" name="user" value="이호연">이호연';
+			echo '<input type="radio" name="user" value="my" checked="checked">이호연';
 			echo '<input type="radio" name="user" value="검색">검색하기';
-			echo '<form id="userlist" onsubmit="searchUser();return false;">';
+			echo '<article id="userlist" style="display:none">';
 			echo '<input type="text" name="user">';
-			echo '<input type="submit" value="찾기"><br>';
-			echo '<article id="list"></article>';
-			echo '</form>';
+			echo '<input type="button" onclick="searchUser();" value="찾기"><br>';
+			echo '<div id="list"></div>';
+			echo '</article>';
 		}
 		?>
 
-		<input type="submit" value="확인">
-	</form>
+		<input type="submit" value="확인" onclick="addGame();">
+	</section>
 </body>
 </html>

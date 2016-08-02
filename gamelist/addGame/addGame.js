@@ -9,6 +9,7 @@ $(document).ready(function(){
 });
 
 function searchUser(){
+	console.log($("input[name='user'][type='text']").val());
 	$.ajax({
 		url:'FindUser.php',
 		type:'post',
@@ -17,9 +18,10 @@ function searchUser(){
 			console.log(data);
 			var str = "";
 			for(var i = 0; i < data.length; ++i){
+				str += "<input type='radio' name='searchUser' value=" + data[i]['user_id']+">";
 				str += data[i]["student_id"].substr(0,4)+" ";
 				str += data[i]["major"]+" ";
-				str += data[i]["name"];
+				str += data[i]["name"]+"<br>";
 			}
 			$("#list").html(str);
 		}
@@ -29,9 +31,14 @@ function searchUser(){
 function addGame(){
 	var name = $("input[name='name']").val();
 	var note = $("input[name='note']").val();
-	var user = "":
+	var user = "my";
 	if($("input[type='radio']").length){
-		
+		var txt = $("input[type='radio']:checked").val();
+		if(txt == "검색"){
+			user = $("input[name='searchUser']:checked").val();
+		}else{
+			user = txt;
+		}
 	}
 
 	$.ajax({
