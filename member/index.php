@@ -109,7 +109,6 @@
 
 				foreach ($value as $k=>$v) {
 					echo "<td>".(round($v/$sum,2)*100)."%</td>";
-					$sum += $v;
 				}
 				echo "<td>100%</td>";
 				echo "</tr>";
