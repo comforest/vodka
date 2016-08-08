@@ -65,6 +65,7 @@ function deleteGame(id){
 		type:"post",
 		data:{"id":id},
 		success:function(data){
+			console.log(data);
 			$("#d"+id).parent().parent().remove();
 		}
 	});
