@@ -30,8 +30,8 @@ function writeList(){
 		str += '<td>'+object["user"]+'</td>';
 		str += '<td>'+object["note"]+'</td>';
 		if(object["edit"] == true){
-			var id = "d"+object["id"];
-			str += "<td><a href=''>O</a> <a id='"+id+"' class = 'del'>X</a></td>";
+			var id = object["id"];
+			str += "<td><a id='e"+id+"' class = 'edit'>O</a> <a id='d"+id+"' class = 'del'>X</a></td>";
 		}
 		str += '</tr>';
 	});
@@ -42,21 +42,36 @@ function writeList(){
 			var i = $(this).attr("id").substr(1);
 			deleteGame(i);
 		}
+	});
+
+	$(".edit").click(function(){
+
+		var object = $(this).parent().parent().children().first();
+		var game = object.html();
+		var note = object.next().next().html();
+		
+		
+	    var left = Math.ceil((window.screen.width - 400)/2);
+	    var top = Math.ceil((window.screen.height - 200)/2);
+		var option = "width=400, height=200,left="+left+",top="+top+", resizable=no, status=no,toolbar=no;";
+		window.open("","dialog",option);                                    //인수로  넣어도 동작에는 지장이 없으나 form.action에서 적용하므로 생략
+
+		var frm = document.dummy;
+		frm.target = "dialog";
+		frm.method = "post";
+		frm.game.value = game;
+	    frm.note.value = note;
+	    frm.id.value = $(this).attr("id").substr(1);
+		frm.submit();
 
 	});
 }
 
-function showAddGame(){
-    var left = Math.ceil((window.screen.width - 400)/2);
-    var top = Math.ceil((window.screen.height - 200)/2);
-	var option = "width=400, height=200,left="+left+",top="+top+", resizable=no, status=no,toolbar=no;";    //팝업창 옵션(optoin)
-	window.open("add","",option);
-}
-function showAddGameRank(){
-	var left = Math.ceil((window.screen.width - 400)/2);
-    var top = Math.ceil((window.screen.height - 450)/2);
-	var option = "width=400, height=450,left="+left+",top="+top+", resizable=no, status=no,toolbar=no;";    //팝업창 옵션(optoin)
-	window.open("add","",option);
+function showDialog(url,width,height){
+    var left = Math.ceil((window.screen.width - width)/2);
+    var top = Math.ceil((window.screen.height - height)/2);
+	var option = "width="+width+", height="+height+",left="+left+",top="+top+", resizable=no, status=no,toolbar=no;";
+	window.open(url,"",option);
 }
 
 function deleteGame(id){

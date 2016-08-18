@@ -1,7 +1,6 @@
 <!-- 
 	전체 Header
 -->
-
 <header class="header">
 	<?php 
 		if(!isset($_SESSION['user'])){

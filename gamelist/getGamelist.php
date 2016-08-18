@@ -9,7 +9,7 @@ $query = "SELECT game_id, name, user_id, note from game Order by name asc";
 if($result = $mysqli->query($query)){
 	while($data = $result->fetch_array(MYSQLI_NUM)){
 		$edit = false;
-		if($_SESSION["user"] == $data[2] || $_SESSION["rank"] <= 2){
+		if(isset($_SESSION["user"]) && isset($_SESSION["rank"]) && ($_SESSION["user"] == $data[2] || $_SESSION["rank"] <= 2)){
 			$edit = true;
 		}
 		$json[] = array("id"=>$data[0], "game"=>$data[1],"user"=>USER::FindByID($data[2])["name"],"note"=>$data[3],"edit"=>$edit);

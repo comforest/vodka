@@ -1,3 +1,4 @@
+<!-- game Add Page -->
 <?php session_start();
 	if(!isset($_SESSION["user"])){
 		echo '<script> 
@@ -15,11 +16,11 @@
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="../gamelist.css">
+	<link rel="stylesheet" type="text/css" href="../dialog.css">
 	<script type="text/javascript" src="addGame.js"></script>
 </head>
 <body>
-	<section class="addGame">
+	<section class="dialog">
 		게임 이름 : <input type="text" name="name"><br>
 		비고 : <input type="text" name="note"><br>
 
@@ -40,4 +41,4 @@
 		<input type="submit" value="확인" onclick="addGame();">
 	</section>
 </body>
-</html>
+</html>	

@@ -12,7 +12,6 @@
 	<link rel="stylesheet" type="text/css" href="/static/css/header.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/board.css">
 
-	<link rel="stylesheet" type="text/css" href="gamelist.css">
 	<script type="text/javascript" src="gamelist.js"></script>
 </head>
 <body>
@@ -24,9 +23,9 @@
 		<?php
 			if(isset($_SESSION["rank"])){
 				if($_SESSION["rank"] > 2){
-					echo '<a onclick="showAddGame()">보드게임 추가하기</a>';
+					echo '<a onclick="showDialog(add,400,200)">보드게임 추가하기</a>';
 				}else{
-					echo '<a onclick="showAddGameRank()">보드게임 추가하기</a>';
+					echo '<a onclick="showDialog(add,400,450)">보드게임 추가하기</a>';
 				}
 			}
 		?>
@@ -49,5 +48,11 @@
 			</tbody>
 		</table>
 	</section>
+
+	<form name="dummy" method="POST" action="edit/index.php" style="display:none">
+		<input type="text" name="game">
+		<input type="text" name="note">
+		<input type="text" name="id">
+	</form>
 </body>
 </html>
