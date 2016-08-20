@@ -7,7 +7,7 @@
 		case 'my':
 			$user = $_SESSION["user"];
 			break;
-		case '동아리':
+		case 'admin':
 			$user = User::GetAdmin()["user_id"];
 			break;
 		default:

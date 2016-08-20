@@ -27,9 +27,9 @@
 		<?php
 		if($_SESSION["rank"] <= 2){
 			echo '소유자';
-			echo '<input type="radio" name="user" value="동아리">동아리';
+			echo '<input type="radio" name="user" value="admin">동아리';
 			echo '<input type="radio" name="user" value="my" checked="checked">이호연';
-			echo '<input type="radio" name="user" value="검색">검색하기';
+			echo '<input type="radio" name="user" value="search">검색하기';
 			echo '<article id="userlist" style="display:none">';
 			echo '<input type="text" name="user">';
 			echo '<input type="button" onclick="searchUser();" value="찾기"><br>';

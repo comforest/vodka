@@ -15,7 +15,6 @@ function searchUser(){
 		type:'post',
 		data:{user:$("input[name='user'][type='text']").val()},
 		success:function(data){
-			console.log(data);
 			var str = "";
 			for(var i = 0; i < data.length; ++i){
 				str += "<input type='radio' name='searchUser' value=" + data[i]['user_id']+">";
@@ -34,7 +33,7 @@ function addGame(){
 	var user = "my";
 	if($("input[type='radio']").length){
 		var txt = $("input[type='radio']:checked").val();
-		if(txt == "검색"){
+		if(txt == "search"){
 			user = $("input[name='searchUser']:checked").val();
 		}else{
 			user = txt;

@@ -23,9 +23,9 @@
 		<?php
 			if(isset($_SESSION["rank"])){
 				if($_SESSION["rank"] > 2){
-					echo '<a onclick="showDialog(add,400,200)">보드게임 추가하기</a>';
+					echo '<a onclick="showDialog(\'add\',400,200)">보드게임 추가하기</a>';
 				}else{
-					echo '<a onclick="showDialog(add,400,450)">보드게임 추가하기</a>';
+					echo '<a onclick="showDialog(\'add\',400,450)">보드게임 추가하기</a>';
 				}
 			}
 		?>
