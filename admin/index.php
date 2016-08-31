@@ -1,5 +1,17 @@
 <!-- 관리 페이지 -->
-<?php session_start() ?>
+<?php session_start();
+if(!isset($_SESSION["rank"])){
+	echo "<script>
+	alert(\"로그인을 하셔야 이용가능합니다.\");
+	location.href = \"/login\";
+	</script>";
+}else if($_SESSION["rank"] > 2){
+	echo "<script>
+	alert(\"접근 권한이 없습니다..\");
+	location.href = \"/\";
+	</script>";
+}
+?>
 
 <!DOCTYPE html>
 <html>
