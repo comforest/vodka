@@ -31,7 +31,7 @@
 	include $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";
 
 	$total = array();
-	if($result = $mysqli->query("SELECT * FROM user WHERE entry = 1 order by entry DESC, rank asc, name asc")){
+	if($result = $mysqli->query("SELECT * FROM user WHERE location <> ''")){
 		while($data = $result->fetch_array(MYSQLI_ASSOC)){
 			$location = $data["location"];
 			$colleage = $data["colleage"];

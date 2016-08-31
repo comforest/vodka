@@ -10,9 +10,9 @@
 	if($_SESSION["rank"]<=2){
 		$query = "SELECT * FROM user";
 	}else{
-		$query = "SELECT name, gender, colleage, major,student_id,rank,location,entry FROM user";
+		$query = "SELECT name, gender, colleage, major,student_id,rank,location FROM user";
 	}
-	$query .= " where rank <> 0 order by entry DESC, rank asc, name asc";
+	$query .= " where rank <> 0 order by rank asc, location DESC, name asc";
 	if($result = $mysqli->query($query)){
 		while($data = $result->fetch_array(MYSQLI_ASSOC)){
 			$arr = array();
@@ -28,7 +28,7 @@
 					case "rank":
 						$value = User::RankInttoStr($value);
 						break;
-					case "entry": case "fee":
+					case "fee":
 						$value = User::InttoOX($value);
 						break;
 					case "phone":
