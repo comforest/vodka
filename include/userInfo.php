@@ -92,20 +92,20 @@ class User{
 	}
 
 
-	/*	EntryInttoStr
-	*	purpose : 활동 여부 OX로 표현하기
+	/*	InttoOX
+	*	purpose : boolean을 OX로 표현하기
 	*/
-	public static function EntryInttoStr($i){
-		if($i == 1){
-			return "O";
-		}else{
+	public static function InttoOX($i){
+		if($i == 0){
 			return "X";
+		}else{
+			return "O";
 		}
 	}
-	/*	EntryStrtoInt
-	*	purpose : 활동 여부 boolean로 표현하기
+	/*	OXtoInt
+	*	purpose : OX를 boolean으로 표현하기
 	*/
-	public static function EntryStrtoInt($str){
+	public static function OXtoInt($str){
 		if($str == "O"){
 			return 1;
 		}else{
@@ -147,7 +147,6 @@ class User{
 	public static function RemovePhoneHypen($str){
 		return str_replace("-", "", $str);
 	}
-
 
 	/*	AppendPhoneHypen
 	*	purpose :  기수 단위 붙이기

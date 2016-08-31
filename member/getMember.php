@@ -28,8 +28,8 @@
 					case "rank":
 						$value = User::RankInttoStr($value);
 						break;
-					case "entry":
-						$value = User::EntryInttoStr($value);
+					case "entry": case "fee":
+						$value = User::InttoOX($value);
 						break;
 					case "phone":
 						$value = User::AppendPhoneHypen($value);

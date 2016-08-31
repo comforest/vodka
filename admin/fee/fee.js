@@ -16,15 +16,14 @@ $(document).ready(function(){
 
 });
 
-var sarr = {name:"이름", student_id:"학번", major:"전공",location:"활동 지역",rank:"등급",entry:"활동 여부",gender: "성별",colleage:"단과대",phone:"전화번호",class:"기수",note:"2학기",fee:"회비"};
+var sarr = {name:"이름", location:"활동 지역",class:"기수",fee:"회비"};
 
 function writeList(){
-
-	var str = "<a onclick=\"SwitchChart()\">차트 보기</a>";
+	var str = "";
 	str += "<table>";
 	str +=	"<thead>";
 	str +=	"<tr>";
-	for(key in json[0]){
+	for(key in sarr){
 		str += "<th id=\""+key+"\">"+sarr[key]+"</th>";
 	}
 	str +=	"</tr>";
@@ -32,18 +31,29 @@ function writeList(){
 	str +=	"<tbody>";
 	for(i in json){
 		str+="<tr>";
+		var id;
 		$.each(json[i],function(key,value){
 			if(value==null){
 				json[i][key] = '';
 				value='';
 			}
-			str+="<td>"+value+"</td>";	
+			if(key=="fee"){
+				str += "<td><input type='checkbox' class='feeCheck' value="+id;
+				if (value == 1){
+					str += " checked";
+				}
+				str += "></td>";
+			}else if(key =="user_id"){
+				id = value;
+			}else{
+				str+="<td>"+value+"</td>";
+			}
 		});
 		str+="</tr>";
 	}
 	str +=	"</tbody>";
 
-	$("#memberList").html(str);
+	$("#List").html(str);
 
 
 	for(key in json[0]){
@@ -52,14 +62,15 @@ function writeList(){
 			writeList();
 		});
 	}
-}
 
-function SwitchChart(){
-	$("#chart").show();
-	$("#memberList").hide();
-}
-
-function SwitchList(){
-	$("#chart").hide();
-	$("#memberList").show();
+	$(".feeCheck").change(function(){
+		$.ajax({
+			url:'setFee.php',
+			type:'post',
+			data:{id:$(this).attr("value"),val:$(this).is(":checked")},
+			error: function (request, status, error) {
+				console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
+			}
+		});
+	})
 }

@@ -33,7 +33,7 @@ if($result = $mysqli->query("SELECT * FROM user order by entry DESC, rank asc, n
         echo "<td>".User::AppendPhoneHypen($data["phone"])."</td>";
         echo "<td>".$data["location"]."</td>";
         echo "<td>".User::AppendClass($data["class"])."</td>";
-        echo "<td>".User::RankInttoStr($data["rank"])."</td>";
+        echo "<td>".User::InttoOX($data["rank"])."</td>";
         echo "<td>".User::EntryInttoStr($data["entry"])."</td>";
         echo "</tr>";
     }

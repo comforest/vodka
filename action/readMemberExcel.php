@@ -50,7 +50,7 @@ try {
 						$arr[$i-2][$f] = User::RankStrtoInt($str);
 						break;
 					case "활동 여부":
-						$arr[$i-2][$f] = User::EntryStrtoInt($str);
+						$arr[$i-2][$f] = User::OXtoInt($str);
 						break;
 					case "전화번호":
 						$arr[$i-2][$f] = User::RemovePhoneHypen($str);

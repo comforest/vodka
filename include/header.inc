@@ -21,7 +21,11 @@
 			 --><li><a href="/gamelist">Board Game List</a></li><!-- 
 			 --><li><a href="/member">Member List</a></li><!-- 
 			 --><li><a href="/myPage">My Page</a></li><!-- 
-			 --><li><a href="">About</a></li>
+			 --><li><a href="">About</a></li><!--
+			 --><?php
+			 	if(isset($_SESSION['rank']) && $_SESSION['rank'] <= 2)
+			 		echo '<li><a href="">페이지관리</a></li>';
+			 	?>
 		</ul>
 	</nav>
 </header>
