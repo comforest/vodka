@@ -17,12 +17,11 @@ echo "
         <td>활동지역</td>
         <td>기수</td>
         <td>등급</td>
-        <td>활동여부</td>
     </tr>
     ";
 include $_SERVER["DOCUMENT_ROOT"]."/include/userInfo.php";
 include $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";
-if($result = $mysqli->query("SELECT * FROM user order by entry DESC, rank asc, name asc")){
+if($result = $mysqli->query("SELECT * FROM user order by rank asc,location DESC, name asc")){
     while($data = $result->fetch_array(MYSQLI_ASSOC)){
         echo "<tr>";
         echo "<td>".$data["name"]."</td>";
@@ -33,8 +32,8 @@ if($result = $mysqli->query("SELECT * FROM user order by entry DESC, rank asc, n
         echo "<td>".User::AppendPhoneHypen($data["phone"])."</td>";
         echo "<td>".$data["location"]."</td>";
         echo "<td>".User::AppendClass($data["class"])."</td>";
-        echo "<td>".User::InttoOX($data["rank"])."</td>";
-        echo "<td>".User::EntryInttoStr($data["entry"])."</td>";
+        echo "<td>".User::RankInttoStr($data["rank"])."</td>";
+        echo "<td>".$data["note"]."</td>";
         echo "</tr>";
     }
 }
