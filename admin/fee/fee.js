@@ -29,6 +29,7 @@ function writeList(){
 	str +=	"</tr>";
 	str +=	"</thead>";
 	str +=	"<tbody>";
+	var sum=0;
 	for(i in json){
 		str+="<tr>";
 		var id;
@@ -41,6 +42,7 @@ function writeList(){
 				str += "<td><input type='checkbox' class='feeCheck' value="+id;
 				if (value == 1){
 					str += " checked";
+					sum++;
 				}
 				str += "></td>";
 			}else if(key =="user_id"){
@@ -51,6 +53,8 @@ function writeList(){
 		});
 		str+="</tr>";
 	}
+
+	str+="<tr><td></td><td></td><td>합계</td><td>"+sum+"</td></tr>";
 	str +=	"</tbody>";
 
 	$("#List").html(str);
@@ -72,5 +76,5 @@ function writeList(){
 				console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
 			}
 		});
-	})
+	});
 }
