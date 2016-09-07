@@ -19,29 +19,30 @@
 	<link rel="stylesheet" type="text/css" href="../dialog.css">
 
 
-	<?php
-	echo '
+	
 	<script type="text/javascript">
 		function editGame(){
-			var id = '.$_POST['id'].';
+			var id = <?php echo $_POST['id']?>;
 			var name = $("input[name=\'name\']").val();
 			var note = $("input[name=\'note\']").val();
+			var difficulty = $("input[name=\'difficulty\']").val();
 			$.ajax({
 				url:"edit.php",
 				type:"post",
-				data:{id:id,note:note,name:name},
+				data:{id:id,note:note,name:name,difficulty:difficulty},
 				success:function(data){
 					opener.location.reload(true);
 					window.close();
 				}
 			});		
 		}
-	</script>';
-	?>
+	</script>
+	
 </head>
 <body>
 	<section class="addGame">
 		게임 이름 : <input type="text" name="name" value=<?php echo $_POST["game"]?> ><br>
+		난이도 : <input type="number" name="difficulty" min="1" max="5" value=<?php echo $_POST["diff"]?>><br>
 		비고 : <input type="text" name="note" value=<?php echo $_POST["note"]?> ><br>
 
 		<input type="submit" value="확인" onclick="editGame();">

@@ -14,7 +14,7 @@ $(document).ready(function(){
 		}
 	});
 
-	$.each(["game","user","note"],function(key, value){
+	$.each(["difficulty","game","user","note"],function(key, value){
 		$("#"+value).click(function(){
 			json = sortJson(json, $(this).attr('id'));
 			writeList();
@@ -26,6 +26,7 @@ function writeList(){
 	var str = "";
 	$.each(json,function(i,object){
 		str += '<tr>';
+		str += '<td>'+object["difficulty"]+'</td>';
 		str += '<td>'+object["game"]+'</td>';
 		str += '<td>'+object["user"]+'</td>';
 		str += '<td>'+object["note"]+'</td>';
@@ -47,19 +48,20 @@ function writeList(){
 	$(".edit").click(function(){
 
 		var object = $(this).parent().parent().children().first();
-		var game = object.html();
+		var game = object.next().html();
 		var note = object.next().next().html();
-		
+		var diff = object.html();
 		
 	    var left = Math.ceil((window.screen.width - 400)/2);
 	    var top = Math.ceil((window.screen.height - 200)/2);
 		var option = "width=400, height=200,left="+left+",top="+top+", resizable=no, status=no,toolbar=no;";
-		window.open("","dialog",option);                                    //인수로  넣어도 동작에는 지장이 없으나 form.action에서 적용하므로 생략
+		window.open("","dialog",option);
 
 		var frm = document.dummy;
 		frm.target = "dialog";
 		frm.method = "post";
 		frm.game.value = game;
+		frm.diff.value = diff;
 	    frm.note.value = note;
 	    frm.id.value = $(this).attr("id").substr(1);
 		frm.submit();

@@ -22,6 +22,7 @@
 <body>
 	<section class="dialog">
 		게임 이름 : <input type="text" name="name"><br>
+		난이도 : <input type="number" name="difficulty" min="1" max="5" value="1"><br>
 		비고 : <input type="text" name="note"><br>
 
 		<?php

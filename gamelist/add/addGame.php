@@ -16,7 +16,7 @@
 	}
 
 
-	$query = 'Insert into game(user_id,name,note) values('.$user.',"'.$_POST["name"].'","'.$_POST["note"].'")';
+	$query = "Insert into game(user_id,name,note,difficulty) values($user,'$_POST[name]','$_POST[note]',$_POST[difficulty])";
 	$mysqli->query($query);
 	print_r($_POST);
 	echo $query;

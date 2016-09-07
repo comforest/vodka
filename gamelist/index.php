@@ -32,6 +32,9 @@
 		<table>
 			<thead>
 				<tr>
+					<th id="difficulty">
+						난이도
+					</th>
 					<th id="game">
 						게임 이름
 					</th>
@@ -52,6 +55,7 @@
 	<form name="dummy" method="POST" action="edit/index.php" style="display:none">
 		<input type="text" name="game">
 		<input type="text" name="note">
+		<input type="text" name="diff">
 		<input type="text" name="id">
 	</form>
 </body>

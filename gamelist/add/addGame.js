@@ -9,7 +9,6 @@ $(document).ready(function(){
 });
 
 function searchUser(){
-	console.log($("input[name='user'][type='text']").val());
 	$.ajax({
 		url:'FindUser.php',
 		type:'post',
@@ -30,6 +29,7 @@ function searchUser(){
 function addGame(){
 	var name = $("input[name='name']").val();
 	var note = $("input[name='note']").val();
+	var difficulty = $("input[name='difficulty']").val();
 	var user = "my";
 	if($("input[type='radio']").length){
 		var txt = $("input[type='radio']:checked").val();
@@ -43,7 +43,7 @@ function addGame(){
 	$.ajax({
 		url:'addGame.php',
 		type:'post',
-		data:{name:name,note:note,user:user},
+		data:{name:name,note:note,user:user,difficulty:difficulty},
 		success:function(data){
 			opener.location.reload(true);
 			window.close();
