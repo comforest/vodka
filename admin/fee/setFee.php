@@ -1,5 +1,5 @@
 <?php
-	include $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";
+	include $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
 	$b = 0;
 	if($_POST['val'] == "true"){
 		$b = 1;

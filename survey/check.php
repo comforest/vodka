@@ -11,8 +11,8 @@
 		<th>내용</th>
 	</tr>
 	<?php
-		include $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";
-		include $_SERVER["DOCUMENT_ROOT"]."/include/userInfo.php";
+		include $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
+		include $_SERVER["DOCUMENT_ROOT"]."/static/php/userInfo.php";
 		$query="SELECT * from survey";
 		if($result = $mysqli->query($query)){
 			while($data = $result->fetch_array(MYSQLI_ASSOC)){

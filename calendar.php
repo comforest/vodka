@@ -5,7 +5,7 @@ POST year, month
 */
 
 header("Content-Type:application/json");
-require_once $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";	
+require_once $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";	
 
 $date = $_POST["year"]."-".$_POST["month"]."-1";
 $ldate = $_POST["year"]."-".((int)$_POST["month"]+1)."-1";

@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER["DOCUMENT_ROOT"]."/include/PHPExcel.php";
+require_once $_SERVER["DOCUMENT_ROOT"]."/static/php/PHPExcel.php";
 // 셀서식 날짜로 되어있을때 읽는방법
 // echo PHPExcel_Style_NumberFormat::toFormattedString($photo_date, PHPExcel_Style_NumberFormat::FORMAT_DATE_YYYYMMDD2);
 try {
@@ -28,8 +28,8 @@ try {
 
 	$field = array_flip($field);
 
-	require_once $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";	
-	require_once $_SERVER["DOCUMENT_ROOT"]."/include/userInfo.php";
+	require_once $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";	
+	require_once $_SERVER["DOCUMENT_ROOT"]."/static/php/userInfo.php";
 
 	$arr = array();
 	for ($i = 2 ; $i <= $maxRow ; $i++) { // 두번째 행부터 읽는다

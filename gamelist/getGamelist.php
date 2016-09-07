@@ -2,8 +2,8 @@
 session_start();
 header("Content-Type:application/json");
 $json = array();
-require_once $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";
-require_once $_SERVER["DOCUMENT_ROOT"]."/include/userInfo.php";
+require_once $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
+require_once $_SERVER["DOCUMENT_ROOT"]."/static/php/userInfo.php";
 $query = "SELECT game_id, name, user_id, note, difficulty from game Order by difficulty asc, name asc";
 
 if($result = $mysqli->query($query)){

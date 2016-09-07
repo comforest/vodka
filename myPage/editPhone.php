@@ -6,7 +6,7 @@
     	location.href =".$_SERVER['HTTP_REFERER'].";
     	</script>";
 	}
-	include $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";
+	include $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
 	if($mysqli->query('UPDATE user Set phone="'.$_POST["phone"].'" where user_id = '.$_SESSION["user"])){
 		echo true;
 	}else{

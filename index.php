@@ -17,8 +17,8 @@
 <body>
 
 	<?php
-		include $_SERVER["DOCUMENT_ROOT"]."/include/header.inc";
-		include $_SERVER["DOCUMENT_ROOT"]."/include/userInfo.php";
+		include $_SERVER["DOCUMENT_ROOT"]."/static/php/header.inc";
+		include $_SERVER["DOCUMENT_ROOT"]."/static/php/userInfo.php";
 
 	?>
 

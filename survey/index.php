@@ -21,7 +21,7 @@
 		echo '<p style="margin:5px 0px 15px 0px;">신촌정모 매주 화요일 7시<br>송도정모 매주 목요일 8시</p>';
 		echo '<form action="report.php" method="POST">';
 
-		include $_SERVER["DOCUMENT_ROOT"]."/include/userInfo.php";
+		include $_SERVER["DOCUMENT_ROOT"]."/static/php/userInfo.php";
 		$user = User::FindByID($_SESSION["user"]);
 
 		echo '<input type="radio" name="sur" value="sin" required>신촌<br>';

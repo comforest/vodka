@@ -1,6 +1,6 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"]."/include/PHPExcel.php";
-require_once $_SERVER["DOCUMENT_ROOT"]."/include/PHPExcel/IOFactory.php";
+require_once $_SERVER["DOCUMENT_ROOT"]."/static/php/PHPExcel.php";
+require_once $_SERVER["DOCUMENT_ROOT"]."/static/php/PHPExcel/IOFactory.php";
 header( 'Content-type: application/vnd.ms-excel' ); 
 header( 'Content-Disposition: inline; filename="listall_'.date('Ymd').'.xls"' );
 header( 'Content-Description: sitePHPbasic Generated Data' );
@@ -19,8 +19,8 @@ echo "
         <td>등급</td>
     </tr>
     ";
-include $_SERVER["DOCUMENT_ROOT"]."/include/userInfo.php";
-include $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";
+include $_SERVER["DOCUMENT_ROOT"]."/static/php/userInfo.php";
+include $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
 if($result = $mysqli->query("SELECT * FROM user order by rank asc,location DESC, name asc")){
     while($data = $result->fetch_array(MYSQLI_ASSOC)){
         echo "<tr>";

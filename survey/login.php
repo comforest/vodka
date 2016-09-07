@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-	include $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";
+	include $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
 	$query = "SELECT * FROM user Where name =\"".$_POST["name"]."\" and student_id = \"".$_POST["student"]."\"";
 	if($result = $mysqli->query($query)){
 		if($data = $result->fetch_array(MYSQLI_ASSOC)){

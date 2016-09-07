@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	require_once $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";
-	require_once $_SERVER["DOCUMENT_ROOT"]."/include/userInfo.php";
+	require_once $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
+	require_once $_SERVER["DOCUMENT_ROOT"]."/static/php/userInfo.php";
 	$user;
 	switch ($_POST["user"]) {
 		case 'my':

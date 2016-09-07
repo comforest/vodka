@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";
+require_once $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
 if(!isset($_SESSION["user"])){
 
 }else if($_SESSION["rank"] <= 2){
