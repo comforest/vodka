@@ -6,7 +6,7 @@ class User{
 	*	reuturn : DB id가 $i인 User
 	*/
 	public static function FindByID($i){
-		include $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";
+		include $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
 		$arr = array();
 		if($result = $mysqli->query("SELECT * FROM user Where user_id = $i")){
 			return $result->fetch_array(MYSQLI_ASSOC);
@@ -18,7 +18,7 @@ class User{
 	*	reuturn : 이름이 $str인 User array
 	*/
 	public static function FindByName($str){
-		include $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";
+		include $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
 		$arr = array();
 		if($result = $mysqli->query("SELECT * FROM user Where name =\"".$str."\"")){
 			$i = 0;
@@ -34,7 +34,7 @@ class User{
 	*	reuturn : 학번이 $str인 User 정보 (mysqli_result 형식)
 	*/
 	public static function FindByStudentID($str){
-		include $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";
+		include $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
 		if($result = $mysqli->query("SELECT * FROM user Where student_id =\"".$str."\"")){
 			return $result->fetch_array(MYSQLI_ASSOC);
 		}
@@ -42,7 +42,7 @@ class User{
 	}
 
 	public static function GetAdmin(){
-		include $_SERVER["DOCUMENT_ROOT"]."/include/mysqli.inc";
+		include $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
 		if($result = $mysqli->query("SELECT user_id,name,rank FROM user Where rank = 0")){
 			return $result->fetch_array(MYSQLI_ASSOC);
 		}

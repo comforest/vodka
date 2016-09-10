@@ -9,6 +9,8 @@
 	<title>VoDKa</title>
 </head>
 <body>
-
+	<form>
+		<input type="date" name="date">
+	</form>
 </body>
 </html>
