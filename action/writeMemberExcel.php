@@ -17,6 +17,7 @@ echo "
         <td>활동지역</td>
         <td>기수</td>
         <td>등급</td>
+        <td>비고</td>
     </tr>
     ";
 include $_SERVER["DOCUMENT_ROOT"]."/static/php/userInfo.php";

@@ -25,6 +25,7 @@ try {
 	$field["class"] = "기수";
 	$field["rank"] = "등급";
 	$field["entry"] = "활동 여부";
+	$field["note"] = "비고";
 
 	$field = array_flip($field);
 
