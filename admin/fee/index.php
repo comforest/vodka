@@ -33,7 +33,12 @@ if(!isset($_SESSION["rank"])){
 	<?php
 		include $_SERVER["DOCUMENT_ROOT"]."/static/php/header.inc";
 	?>
-	<section class = "board" id= "List"></section>
+	<section class = "board">
+		<a onclick="showName()">회비 내지 않은 사람 이름 나열하기</a><br>
+		<a onclick="showPhone()">회비 내지 않은 사람 휴대폰 나열하기</a><br>
+		<article id = "note"></article>
+		<article id="List"></article>
+	</section>
 	
 </body>
 </html>

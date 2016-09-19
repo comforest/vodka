@@ -38,7 +38,9 @@ function writeList(){
 				json[i][key] = '';
 				value='';
 			}
-			if(key=="fee"){
+			if(key == "phone"){
+
+			}else if(key=="fee"){
 				str += "<td><input type='checkbox' class='feeCheck' value="+id;
 				if (value == 1){
 					str += " checked";
@@ -77,4 +79,26 @@ function writeList(){
 			}
 		});
 	});
+
+}
+
+
+function showName(){
+	var str = "";
+	for(i in json){
+		if(json[i]["fee"] == 0){
+			str += json[i]["name"]+"<br>";
+		}
+	}
+	$("#note").html(str);
+}
+
+function showPhone(){
+	var str = "";
+	for(i in json){
+		if(json[i]["fee"] == 0){
+			str += json[i]["phone"]+"<br>";
+		}
+	}
+	$("#note").html(str);
 }
