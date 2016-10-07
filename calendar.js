@@ -86,8 +86,11 @@ function HtmlCalendar(y, m, data){
 			var date = new Date(data[not]["date"]);
 			if(date.getDate() == d){
 				var s = "";
-				if(data[not]["url"] != null){
-					s = "href" + data[not]["url"];
+				console.log(data[not]["type"]);
+				switch(data[not]["type"]){
+					case '0': case '1':
+						s = " href = attend?id=" + data[not]["id"];
+						break;
 				}
 				str += "<a"+s+">"+data[not]["text"]+"</a>";
 				++not;

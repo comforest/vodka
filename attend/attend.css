@@ -1,0 +1,13 @@
+.left-side, .center-side, .right-side{
+	display: inline-block;
+	width: 35%;
+	height: 100%;
+	vertical-align: top;
+}
+.center-side{
+	width: 20%;
+}
+/*
+.left-side *, .rigth-side *{
+	width:100%;
+}*/

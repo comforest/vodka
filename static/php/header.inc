@@ -24,7 +24,7 @@
 			 --><li><a href="">About</a></li><!--
 			 --><?php
 			 	if(isset($_SESSION['rank']) && $_SESSION['rank'] <= 2)
-			 		echo '<li><a href="">페이지관리</a></li>';
+			 		echo '<li><a href="/admin/fee">회비 관리</a></li>';
 			 	?>
 		</ul>
 	</nav>
