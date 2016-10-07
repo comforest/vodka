@@ -10,8 +10,10 @@
 
 	$arr1 = [];
 	$arr2 = [];
+	$arrf = [];
 	$list = array_unique($_POST["list"]);
 	foreach ($list as $k => $v) {
+		if($v == "") continue;
 		$user = User::FindByName($v);
 		if(count($user) == 1){
 			$u = $user[0];
@@ -19,7 +21,7 @@
 			if($mysqli->query("SELECT * FROM attend WHERE calendar_id=$Cid and user_id=$Uid")->num_rows > 0) continue;
 
 			$mysqli->query("INSERT into attend value($Cid,$Uid)");
- 			$arr1[] = array ("name"=>$u["name"], "student_id"=>User::getShortStudentID($u["student_id"]), "major"=>$u["major"]);
+ 			$arr1[] = array ("name"=>$u["name"], "student_id"=>$u["student_id"], "major"=>$u["major"]);
 
 		}else if(count($user) > 1){
 			$arr3 = [];
@@ -34,10 +36,12 @@
 
 			}
 			$arr2[] = $arr3;
+		}else if(count($user) == 0){
+			$arrf[] = $v;
 		}
 	}
 
-	$result = array("complete"=>$arr1,"samename"=>$arr2);
+	$result = array("complete"=>$arr1,"samename"=>$arr2,"not_member"=>$arrf);
 	
 	echo json_encode($result);
 ?>

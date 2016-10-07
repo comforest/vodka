@@ -38,22 +38,7 @@
 			참석자 명단 <br>
 
 			<table id="list">
-			<?php
-				include_once "$_SERVER[DOCUMENT_ROOT]/static/php/userInfo.php";
-				$query = "SELECT user_id from attend where calendar_id=$_GET[id]";
-				if($result = $mysqli->query($query)){
-					while($data = $result->fetch_array(MYSQLI_NUM)){
-						$user = User::FindByID($data[0]);
-						echo "<tr>";
-						echo "<td>$user[name]</td>";
-						echo "<td>".User::getShortStudentID($user["student_id"])."</td>";
-						echo "<td>$user[major]</td>";
-						if(isset($_SESSION["rank"]) && $_SESSION["rank"]<=2){
-						echo "<td>X</td>";
-						}
-					}
-				}
-			?>
+			
 			</table>
 		</sectoin>
 		<?php

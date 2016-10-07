@@ -1,5 +1,21 @@
+var id;
+$(document).ready(function(){
+	id = $("input[name=id]").val();
+	$.ajax({
+		url:"getMember.php",
+		data:{id:id},		
+		type:'get',
+		success:function(data){
+			writeMember(data.member,data.d);
+		},
+		error: function (request, status, error) {
+			console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
+		}	
+
+	});
+});
+
 function PeopleCheck(){
-	var id = $("input[name=id]").val();
 	var arr = $("#people").val().split("\n");
 
 	$.ajax({
@@ -8,17 +24,11 @@ function PeopleCheck(){
 		type:'post',
 		success:function(data){
 			var str;
-			$.each(data.complete, function(k,v){
-				str = "<tr>";
-				str += "<td>"+v.name+"</td>";
-				str += "<td>"+v.student_id+"</td>";
-				str += "<td>"+v.major+"</td>";
-				str += "<td>X</td>";
-				$("#list").append(str);
-			});
-			
-			$("#check").html("");
 
+//////////////////////// 정상적인 처리
+			writeMember(data.complete);
+
+/////////////////////// 동명 이인
 			str = "";
 			$.each(data.samename, function(key,value){
 				$.each(value,function(k,v){
@@ -30,12 +40,22 @@ function PeopleCheck(){
 			});
 
 			if(str != ""){
-				console.log("test");
 				str = "동명 이인 리스트<br>"
 						+ str
 						+ "<input type='submit' value='저장' onclick='FinalCheck()'>";
 			}
 			$("#check").append(str);
+
+/////////////////////////// Error
+			str = "";
+			$.each(data.not_member, function(k,v){
+				str += "<br>"+v;
+			});
+
+			if(str != ""){
+				str = "<br>찾지 못한 회원<br>"	+ str;
+			}
+			$("#check").append(str);			
 
 		},
 		error: function (request, status, error) {
@@ -45,16 +65,50 @@ function PeopleCheck(){
 }
 
 function FinalCheck(){
-	var id = $("input[name=id]").val();
 	$.each($("input:checked"),function(k,v){
 		$.ajax({
 			url:"FinalCheck.php",
 			data:{id:id,user:v.value},
 			type:'post',
 			success:function(data){
-				console.log(data);
-				//$("#check").html(data);
+				writeMember(data);
 			}
 		});	
+	});
+}
+
+
+/*
+json : [
+	{name:N, student_id:ID, major: M},
+	{}
+
+]
+*/
+function writeMember(json, d=true){
+	$.each(json, function(k,v){
+		str = "<tr>";
+		str += "<td>"+v.name+"</td>";
+		str += "<td>"+v.student_id.substr(2,2)+"</td>";
+		str += "<td>"+v.major+"</td>";
+		if(d) str += "<td><a onclick='deleteMember("+v.student_id+",this)'>X</a></td>";
+		$("#list").append(str);
+	});
+	
+	$("#check").html("");
+}
+
+
+function deleteMember(Sid,t){
+	$.ajax({
+		url:"delete.php",
+		data:{id:id,user:Sid},
+		type:'POST',
+		success:function(data){
+			$(t).parent().parent().remove();
+		},
+		error: function (request, status, error) {
+			console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
+		} 
 	});
 }
