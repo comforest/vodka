@@ -16,7 +16,7 @@ $(document).ready(function(){
 
 });
 
-var sarr = {name:"이름", student_id:"학번", major:"전공",location:"활동 지역",rank:"등급",gender: "성별",colleage:"단과대",phone:"전화번호",class:"기수",note:"2학기",fee:"회비"};
+var sarr = {name:"이름", student_id:"학번", major:"전공",location:"활동 지역",rank:"등급",gender: "성별",colleage:"단과대",phone:"전화번호",class:"기수",note:"비고"};
 
 function writeList(){
 

@@ -6,7 +6,7 @@
 
 	$json = array();
 
-	$query = "SELECT user_id, name, location, class, fee, phone FROM user where location <> '' Order by class desc, name asc";
+	$query = "SELECT a.user_id, name, location, class, b.fee from user a inner join fee b where a.user_id = b.user_id";
 	if($result = $mysqli->query($query)){
 		while($data = $result->fetch_array(MYSQLI_ASSOC)){
 			$arr = array();
