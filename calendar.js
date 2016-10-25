@@ -88,7 +88,7 @@ function HtmlCalendar(y, m, data){
 				var s = "";
 				console.log(data[not]["type"]);
 				switch(data[not]["type"]){
-					case '0': case '1':
+					case '0': case '1': case '2':
 						s = " href = attend?id=" + data[not]["id"];
 						break;
 				}

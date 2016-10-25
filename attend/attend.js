@@ -67,7 +67,7 @@ function PeopleCheck(){
 function FinalCheck(){
 	$.each($("input:checked"),function(k,v){
 		$.ajax({
-			url:"FinalCheck.php",
+			url:"finalCheck.php",
 			data:{id:id,user:v.value},
 			type:'post',
 			success:function(data){
