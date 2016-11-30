@@ -21,10 +21,22 @@ class User{
 		include $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
 		$arr = array();
 		if($result = $mysqli->query("SELECT * FROM user Where name =\"".$str."\"")){
-			$i = 0;
 			while($data = $result->fetch_array(MYSQLI_ASSOC)){
-				$arr[$i] = $data;
-				++$i;
+				$arr[] = $data;
+			}
+		}
+		return $arr;
+	}
+	/*	FindByNickname
+	*	purpose : 닉네임으로 User 찾기
+	*	reuturn : 닉네임이 $str인 User array
+	*/
+	public static function FindByNickname($str){
+		include $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
+		$arr = array();
+		if($result = $mysqli->query("SELECT * FROM user Where Nickname =\"".$str."\"")){
+			if($data = $result->fetch_array(MYSQLI_ASSOC)){
+				$arr = $data;
 			}
 		}
 		return $arr;

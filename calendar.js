@@ -49,8 +49,10 @@ function WriteCalendar(y , m){
 		error: function (request, status, error) {
 			console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
 		}
-	});	
+	});
 }
+
+
 /*	HtmlCalendar
 *	목적 : 달력 그리기(AJAX 이벤트 함수)
 *	calendar class 내부에 그림

@@ -1,5 +1,5 @@
 include/security/*
-db.txt
+db.sql
 excel.xlsx
 
 # Created by https://www.gitignore.io/api/windows,sublimetext
