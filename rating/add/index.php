@@ -19,7 +19,7 @@
 		include $_SERVER["DOCUMENT_ROOT"]."/static/php/header.inc";
 	?>
 
-	<section class="calendar">
+	<section>
 		<select onchange='setInput()''>
 			<?php
 				include $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";

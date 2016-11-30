@@ -19,7 +19,7 @@
 
 	?>
 
-	<section class="calendar">
+	<section>
 		<table>
 			<thead>
 				<tr>
