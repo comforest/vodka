@@ -36,10 +36,11 @@ function saveInfo(){
 		success:function(data){
 			switch(data["status"]){
 				case "success":
-					console.log("success");
+					alert("저장되었습니다.");
+					location.href="/rating";
 					break;
 				case "ErrorNick":
-					console.log(data["message"]);
+					alert(data["message"]+" 닉네임이 존재하지 않습니다.");
 					break;
 				default:
 					console.log(data);

@@ -19,8 +19,8 @@
 
 		if($result = $mysqli->query($query)){
 			if($result->num_rows == 0){
-				$mysqli->query("INSERT into rating_user value($game,$data[user_id],500)");
-				$arr[$k] = array("rank"=>$arr[$k]["rank"], "score"=>$arr[$k]["score"], "rating"=>500, "user"=>$data["user_id"]);	
+				$mysqli->query("INSERT into rating_user value($game,$u[user_id],500)");
+				$arr[$k] = array("rank"=>$arr[$k]["rank"], "score"=>$arr[$k]["score"], "rating"=>500, "user"=>$u["user_id"]);	
 			}else if($data = $result->fetch_array(MYSQLI_ASSOC)){
 				$arr[$k] = array("rank"=>$arr[$k]["rank"], "score"=>$arr[$k]["score"], "rating"=>$data["rating"], "user"=>$u["user_id"]);
 			}
