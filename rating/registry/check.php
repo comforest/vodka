@@ -3,6 +3,7 @@
 	include $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
 
 	$nickname = $_POST["nickname"];
+	$nickname = strtolower($nickname);
 	if($result=$mysqli->query("SELECT user_id from user where nickname='$nickname'")){
 
 		if($result->num_rows == 0){

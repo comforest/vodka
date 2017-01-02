@@ -7,7 +7,7 @@ $(document).ready(function(){
 		type:'post',
 		success:function(d){
 			data = d;
-			
+			console.log(d);
 			writeList(1);
 		},
 		error: function (request, status, error) {
@@ -17,7 +17,7 @@ $(document).ready(function(){
 
 });
 
-var sarr = {name:"이름", nickname:"닉네임", rating:"레이팅", number:"게임수"};
+var sarr = {name:"이름", nickname:"닉네임", rating:"레이팅", number:"게임수", rank:"순위"};
 
 function setTable(){
 	var n = $("option:selected").val();
@@ -52,7 +52,7 @@ function writeList(index){
 	$("#list").html(str);
 
 
-	for(key in json[0]){
+	for(key in sarr){
 		$("#"+key).click(function(){
 			data[index] = sortJson(data[index], $(this).attr('id'));
 			writeList(index);
