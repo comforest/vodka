@@ -1,9 +1,10 @@
 .calendar{
-	width:1000px;
+	/*width:100%;*/
 }
 
 .calendar table{
-	width: 100%;
+	width: 1000px;
+	margin: auto;
 }
 
 /*년월일 표시*/
@@ -27,7 +28,6 @@
 
 /*테두리 부분*/
 .calendar table thead tr:last-child th, .calendar table tbody td{
-	width : 140px;
 	border:solid black 1px;
 	padding:5px 10px;
 }
