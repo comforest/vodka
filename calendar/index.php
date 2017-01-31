@@ -18,8 +18,6 @@
 
 	<?php
 		include $_SERVER["DOCUMENT_ROOT"]."/static/php/header.inc";
-		include $_SERVER["DOCUMENT_ROOT"]."/static/php/userInfo.php";
-
 	?>
 
 	<section class="calendar">

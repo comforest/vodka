@@ -18,6 +18,7 @@
 	<?php 
 		include $_SERVER["DOCUMENT_ROOT"]."/static/php/header.inc";
 	?>
+	<h2>보드게임 목록</h2>
 
 	<section class="board gamelist">
 		<?php
