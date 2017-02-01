@@ -1,6 +1,7 @@
 function login(){
 	var id = $("input[name='id']").val();
 	var pass = $("input[name='pass']").val();
+	var auto = $("input[name='auto']").is(":checked");
 	
 	if(id==""){
 		alert("아이디를 입력해주세요.");
@@ -10,13 +11,14 @@ function login(){
 		$.ajax({
 			url:"/action/login_action.php",
 			type:"post",
-			data:{"id":id,"pass":pass},
+			data:{"id":id,"pass":pass,"auto":auto},
 			success:function(data){
-				if(data == false){
-					alert("ID 또는 비밀번호가 틀렸습니다.");
-				}else{
+				console.log(data);
+				if(data == true){
 					var url = $("input[name='url']").val();
 					location.href=url;
+				}else{
+					alert("ID 또는 비밀번호가 틀렸습니다.");
 				}
 			}
 		})

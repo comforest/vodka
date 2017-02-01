@@ -1,6 +1,7 @@
 <?php
 	session_start();
-	
+
+
 	if($_POST["id"] == "" || $_POST["pass"] == ""){
 
 		echo false;
@@ -14,8 +15,15 @@
 		if($data = $result->fetch_array(MYSQLI_ASSOC)){
 			$_SESSION['user'] = $data['user_id'];
 			$_SESSION['rank'] = $data['rank'];
-			echo "$data[name]($data[nickname])";
-			// header('Location: '. $_POST["url"]);
+
+			if($_POST["auto"]){
+				setcookie("userID",$_POST["id"],time()+3600*24*180,"/");
+				setcookie("userPW",$_POST["pass"],time()+3600*24*180,"/");
+			}else{
+				setcookie("userID","",0);
+				setcookie("userPW","",0);				
+			}
+			echo true;
 		}else{
 			//TODO 로그인 실패
 			echo false;

@@ -16,15 +16,31 @@
 </head>
 <body>
 	
+	<?php
+
+		if(isset($_SESSION["user"]) && isset($_SESSION["rank"])){
+			echo "<script>location.href='/';</script>";
+		}
+
+		$userID = "";
+		$userPW = "";
+		$auto = "";
+		if(isset($_COOKIE['userID']) && isset($_COOKIE["userPW"])){
+			$userID = $_COOKIE['userID'];
+			$userPW = $_COOKIE['userPW'];
+			$auto = "checked";
+		}
+	?>
+
 	<section class="login">
-		<form method="POST" onsubmit="login(); return false;">
+		<form method="POST" onsubmit="return false;">
 			<h1>V o D K a</h1>
 			<p>아이디</p>
-			<input type="text" name="id" placeholder="ID">
+			<input type="text" name="id" placeholder="ID" value="<?php echo $userID ?>">
 			<p>비밀번호</p>
-			<input type="password" name="pass" placeholder="PassWord">
-			<input type="submit" value="로그인">
-			<p class="auto_login"><input type="checkbox"> 자동 로그인</p>
+			<input type="password" name="pass" placeholder="PassWord" value="<?php echo $userPW ?>">
+			<input type="submit" value="로그인" onclick="login(); ">
+			<p class="auto_login"><input type="checkbox" name="auto" <?php echo $auto ?>> 정보 기억하기</p>
 		</form>
 	</section>
 
