@@ -10,8 +10,8 @@ body{
 	vertical-align: middle;
 	margin: 0px;
 	padding: 0px;
-}
 
+}
 #home{
 	position: absolute;
     width: 0; 
@@ -98,26 +98,6 @@ aside{
 	display: inline-block;
 	padding-top: 280px;
 }
-
-
-.login, .login_active{
-	width: 180px;
-	margin:auto;
-}
-.login_input{
-	display: flex;
-}
-
-.login input[type="text"], .login input[type="password"]{
-	width: 105px;
-	padding: 5px;
-	display: block;
-	margin: 0px;
-}
-.login input[type="submit"]{
-	width: 65px;
-}
-
 
 
 

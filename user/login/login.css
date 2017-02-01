@@ -1,0 +1,51 @@
+body{
+	margin: 0px;
+	background: #ADD5F7;
+}
+
+.login{
+	position: absolute;
+	left:0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	width: 500px;
+	height: 580px;
+}
+
+.login h1{
+	font-size: 4em;
+	text-align: center;
+	margin : 0.4em;
+}
+
+.login p{
+	margin: 0.5em 0;
+}
+
+.login input[type="text"], .login input[type="password"]{
+	width: 94%;
+	padding: 0.7em 3%;
+	font-size: 1.4em;
+}
+.login input[type="submit"]{
+	width: calc(100% + 4px);
+	margin-top: 1em;
+	padding: 0.7em 0;
+	font-size: 1.3em;
+}
+
+.login .auto_login{
+	display: inline-block;
+	margin: 0.3em 0 0 0;
+	font-size: 1.3em;
+}
+
+.login .auto_login input[type="checkbox"]{
+	display: inline;
+	width: 1.5em;
+	height: 1.5em;
+	vertical-align: middle;
+	margin: 0px;
+}
