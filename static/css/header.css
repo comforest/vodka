@@ -12,12 +12,7 @@ body{
 	padding: 0px;
 }
 
-
-header {
-	margin-bottom: 10px;
-}
-
-header #home{
+#home{
 	position: absolute;
     width: 0; 
     height: 0; 
@@ -26,8 +21,10 @@ header #home{
     z-index: 1;
 }
 
-.nav{
-
+header {
+	margin-bottom: 10px;
+}
+.header{
 	min-width: 1000px;
 	height: 60px;
 	background-color: #4E7AC7;
@@ -36,50 +33,44 @@ header #home{
 	margin: 0px;
 }
 
+
 .nav .menu{
-	position: relative;
-	width: 160px;
+	width: 100%;
 	display: inline-block;
 	vertical-align: top;
-	z-index: 3;
+	padding-bottom: 3px;
 }
 
 .nav .main_menu{
-	transform: skew(-45deg);
-	margin-right: 5px;
-	font-weight: 900;
-	color: white;
-}
-
-.nav .main_menu p{
 	height : 100%;
+	font-weight: 900;
+	/*background: #7FB2F0;*/
+
 	line-height: 60px;
 	vertical-align: middle;
+
+	color: #4E7AC7;
 
 	text-align: center;
 	padding: 0px;
 	margin: 0px;
-	transform: skew(45deg);
 }
 
-.nav .hover, .nav .detail_menu li:hover{
-	background-color: #35478C;
-}
 
 .nav .detail_menu{
 	min-width: 100px;
     list-style-type: none;
-	background-color: #4E7AC7;
+	background-color: #7FB2F0;
 	margin: 0px;
-	padding: 15px 0px;
+	padding: 1px 0px;
 
 	position: relative;
-	left:-30px;
 	display: none;
 }
 
 .nav .detail_menu li{
 	padding: 8px 20px;
+	margin: 13px;
 }
 
 .nav a{
@@ -87,7 +78,14 @@ header #home{
 	color: white;
 }
 
-
+.nav .select_menu, .nav .hover{
+	background-color: #35478C;
+	color: white;
+}
+.nav .detail_menu li:hover{
+	background-color: #4E7AC7;
+	color: white;
+}
 
 aside{
 	width:200px;
@@ -98,26 +96,32 @@ aside{
 	bottom: 0px;
 
 	display: inline-block;
-	padding-top: 315px;
+	padding-top: 280px;
 }
 
-aside .login, aside .login_active{
+
+.login, .login_active{
 	width: 180px;
 	margin:auto;
 }
-aside .login_input{
+.login_input{
 	display: flex;
 }
 
-aside .login input[type="text"], aside .login input[type="password"]{
+.login input[type="text"], .login input[type="password"]{
 	width: 105px;
 	padding: 5px;
 	display: block;
 	margin: 0px;
 }
-aside .login input[type="submit"]{
+.login input[type="submit"]{
 	width: 65px;
 }
+
+
+
+
+
 
 body>h2, body>section{
 	min-width: 1000px;
