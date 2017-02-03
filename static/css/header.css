@@ -33,11 +33,8 @@ header {
 	margin: 0px;
 }
 
-.log{
+#login, #logout{
 	float: right;
-}
-
-.log a{
 	display: inline-block;
 	height: 100%;
 	line-height: 60px;

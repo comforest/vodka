@@ -9,15 +9,14 @@
 <header class="header">
 
 
-	<span class="log">
-		<?php
-		if (isset($_SESSION["user"])) {
-			echo '<a id="logout" href="/action/logout.php">로그아웃</a>';
-		}else{
-			echo '<a id="login" href="/user/login">로그인</a>';
-		}
-		?>
-	</span>
+	<?php
+	if (isset($_SESSION["user"])) {
+		include_once $_SERVER["DOCUMENT_ROOT"]."/static/php/userInfo.php";
+		echo '<a id="logout" href="/action/logout.php">로그아웃</a>';
+	}else{
+		echo '<a id="login" href="/user/login">로그인</a>';
+	}
+	?>
 </header>
 
 <aside>
