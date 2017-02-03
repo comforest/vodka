@@ -18,6 +18,9 @@
 	<?php 
 		include $_SERVER["DOCUMENT_ROOT"]."/static/php/header.inc";
 	?>
+	<script type="text/javascript">select_menu("gamelist");</script>
+
+
 	<h2>보드게임 목록</h2>
 
 	<section class="board gamelist">

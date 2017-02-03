@@ -9,37 +9,15 @@
 <header class="header">
 
 
-
-	<!-- <section class='login_active'>
+	<span class="log">
 		<?php
 		if (isset($_SESSION["user"])) {
-			include $_SERVER["DOCUMENT_ROOT"]."/static/php/userInfo.php";
-			$user = User::FindByID($_SESSION["user"]);
-			echo "<p>$user[name]($user[nickname])</p>";
+			echo '<a id="logout" href="/action/logout.php">로그아웃</a>';
+		}else{
+			echo '<a id="login" href="/user/login">로그인</a>';
 		}
 		?>
-
-	</section>
-	-->
-
-
-	<?php
-		if(!isset($_SESSION["user"])){
-	?>
-	<section class="login">
-
-		<form method="POST" class="login_input" onsubmit="login();return false;">
-			<div>
-				<input type="text" name="id" placeholder="ID">
-				<input type="password" name="pass" placeholder="PassWord">
-			</div><input type="submit" value="로그인">
-		</form>
-		<!-- <input type="checkbox"> 자동 로그인 -->
-	</section>
-
-	<?php } ?> 
-
-	<a href="/user/login">로그인 하기</a>
+	</span>
 </header>
 
 <aside>
@@ -47,15 +25,15 @@
 			<div class="menu">
 				<p class="main_menu">일정</p>
 				<ul class="detail_menu">
-					<a href="/calendar/"><li>일정</li></a>
-					<a href="/calendar/attend"><li>출석부</li></a>
+					<a href="/calendar/"><li id="calendar">일정</li></a>
+					<a href="/calendar/attend"><li id="attend">출석부</li></a>
 				</ul>
 			</div>
 			<div class="menu select">
 				<p class="main_menu">정보</p>
 				<ul class="detail_menu">
-					<a href="/info/member"><li class="select_menu">회원 목록</li></a>
-					<a href="/info/gamelist"><li>보드게임 목록</li></a>
+					<a href="/info/member"><li id="member">회원 목록</li></a>
+					<a href="/info/gamelist"><li id="gamelist">보드게임 목록</li></a>
 				</ul>
 			</div>
 			<div class="menu">

@@ -15,3 +15,11 @@ $(document).ready(function(){
 	);
 
 });
+
+function select_menu(menu){
+	console.log(menu);
+	$(".nav #"+menu).addClass("select_menu");
+	$(".nav .select_menu").parent().parent().show();
+	$(".nav .select_menu").parent().parent().prev().addClass("hover");
+	
+}

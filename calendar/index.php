@@ -19,6 +19,7 @@
 	<?php
 		include $_SERVER["DOCUMENT_ROOT"]."/static/php/header.inc";
 	?>
+	<script type="text/javascript">select_menu("calendar");</script>
 
 	<section class="calendar">
 		<article></article>

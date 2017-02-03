@@ -4,7 +4,7 @@
 	if(!isset($_SESSION["user"])){
 		echo "<script>
     	alert(\"로그인을 하셔야 이용가능합니다.\");
-    	location.href = \"/login\";
+    	location.href = \"/user/login\";
     	</script>";
 	}
 ?>
@@ -122,5 +122,6 @@
 	?>
 	<section class = "board" id= "memberList"></section>
 
+	<script type="text/javascript">select_menu("member");</script>
 </body>
 </html>

@@ -33,6 +33,32 @@ header {
 	margin: 0px;
 }
 
+.log{
+	float: right;
+}
+
+.log a{
+	display: inline-block;
+	height: 100%;
+	line-height: 60px;
+	text-decoration: none;
+	color : white;
+	padding: 0 1em;
+}
+
+
+aside{
+	width:200px;
+	background: #ADD5F7;
+
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+
+	display: inline-block;
+	padding-top: 280px;
+}
+
 
 .nav .menu{
 	width: 100%;
@@ -78,30 +104,16 @@ header {
 	color: white;
 }
 
-.nav .select_menu, .nav .hover{
-	background-color: #35478C;
-	color: white;
-}
 .nav .detail_menu li:hover{
 	background-color: #4E7AC7;
 	color: white;
 }
-
-aside{
-	width:200px;
-	background: #ADD5F7;
-
-	position: absolute;
-	top: 0px;
-	bottom: 0px;
-
-	display: inline-block;
-	padding-top: 280px;
+.nav .select_menu, .nav .hover{
+	background-color: #35478C;
+	color: white;
 }
 
-
-
-
+	
 
 body>h2, body>section{
 	min-width: 1000px;
