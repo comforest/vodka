@@ -7,7 +7,7 @@
 		echo false;
 		return;
 	}
-	include $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
+	include_once $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
 	$pass = $_POST["pass"];
 	// $pass = hash('sha256',$_POST["pass"])
 	$query = "SELECT * FROM user Where id =\"$_POST[id]\" and password = \"$pass\"";

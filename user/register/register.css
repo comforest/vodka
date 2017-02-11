@@ -1,0 +1,102 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	background: #ADD5F7;
+}
+
+.title{
+	margin-top: 1em;
+}
+
+.title *{
+	text-align: center;
+	margin : 0;
+}
+
+.title h1{
+	font-size: 4em;
+}
+
+.title h2{
+	font-size: 2em;
+	font-weight: 600;
+}
+
+.register{
+	margin: auto;
+	width: 500px;
+}
+
+
+.register .brief{
+	text-align: center;
+	margin : 2em 0;
+}
+
+
+.register .label{
+	font-size: 1.2em;
+	margin : 0;
+	font-weight: 900;
+}
+.register .explain{
+	font-size: 1em;
+	margin: 0.3em 0 0 0.9em;
+}
+
+.register input[type="text"], .register input[type="password"]{
+	width: 94%;
+	padding: 0.7em 3%;
+	font-size: 1.4em;
+	margin:0.5em 0;
+}
+.register input[type="submit"]{
+	width: calc(100% + 4px);
+	font-size: 1.3em;
+	margin-top: 1.4em;
+	padding: 0.7em 0;
+}
+
+.register .auto_login{
+	display: inline-block;
+	margin: 0.3em 0 0 0;
+	font-size: 1.3em;
+}
+
+.register .auto_login input[type="checkbox"]{
+	display: inline;
+	width: 1.5em;
+	height: 1.5em;
+	vertical-align: middle;
+	margin: 0px;
+}
+
+.register p.correct{
+	color:green;
+}
+
+.register p.wrong{
+	color: red;
+}
+
+.register input.correct{
+	border-color: green;
+}
+
+.register input.wrong{
+	border-color: red;
+}
+
+.register .note{
+	font-size: 1em;
+	margin-top: 0.35em;
+	margin-left: 0.9em;
+}
+
+
+footer{
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	width: 100%;
+}
