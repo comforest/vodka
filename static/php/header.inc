@@ -28,7 +28,7 @@
 					<a href="/calendar/attend"><li id="attend">출석부</li></a>
 				</ul>
 			</div>
-			<div class="menu select">
+			<div class="menu">
 				<p class="main_menu">정보</p>
 				<ul class="detail_menu">
 					<a href="/info/member"><li id="member">회원 목록</li></a>

@@ -56,6 +56,10 @@ aside{
 	padding-top: 280px;
 }
 
+.nav{
+	position: relative;
+	z-index: 3;
+}
 
 .nav .menu{
 	width: 100%;
