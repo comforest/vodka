@@ -1,58 +1,21 @@
-var json;
-document.write("<script src='/static/javascript/function.js'></script>");
+document.write("<script src='/static/javascript/sortTable.js'></script>");
 
 $(document).ready(function(){
-	$.ajax({
-		url:'getMember.php',
-		type:'post',
-		success:function(data){
-			json = data;
-			writeList();
-		},
-		error: function (request, status, error) {
-			console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
-		}
-	});
+	
+	addKeyList("name","이름");
+	addKeyList("student_id","학번");
+	addKeyList("colleage","단과대");
+	addKeyList("major","전공");
+	addKeyList("location","활동지역");
+	addKeyList("rank","등급");
+	addKeyList("gender","성별");
+	addKeyList("phone","전화번호");
+	addKeyList("class","기수");
+	addKeyList("note","비고");
+	// var str = "<a onclick=\"SwitchChart()\">차트 보기</a>";
 
+	getData("getMember.php");
 });
-
-var sarr = {name:"이름", student_id:"학번", major:"전공",location:"활동 지역",rank:"등급",gender: "성별",colleage:"단과대",phone:"전화번호",class:"기수",note:"비고"};
-
-function writeList(){
-
-	var str = "<a onclick=\"SwitchChart()\">차트 보기</a>";
-	str += "<table>";
-	str +=	"<thead>";
-	str +=	"<tr>";
-	for(key in json[0]){
-		str += "<th id=\""+key+"\">"+sarr[key]+"</th>";
-	}
-	str +=	"</tr>";
-	str +=	"</thead>";
-	str +=	"<tbody>";
-	for(i in json){
-		str+="<tr>";
-		$.each(json[i],function(key,value){
-			if(value==null){
-				json[i][key] = '';
-				value='';
-			}
-			str+="<td>"+value+"</td>";	
-		});
-		str+="</tr>";
-	}
-	str +=	"</tbody>";
-
-	$("#memberList").html(str);
-
-
-	for(key in json[0]){
-		$("#"+key).click(function(){
-			json = sortJson(json, $(this).attr('id'));
-			writeList();
-		});
-	}
-}
 
 function SwitchChart(){
 	$("#chart").show();

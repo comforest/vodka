@@ -33,7 +33,7 @@
 				}
 			}
 		?>
-		<table>
+		<table id="sortTable">
 			<thead>
 				<tr>
 					<th id="difficulty">
@@ -50,7 +50,7 @@
 					</th>
 				</tr>
 			</thead>
-			<tbody id="list">
+			<tbody>
 			
 			</tbody>
 		</table>

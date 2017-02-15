@@ -120,7 +120,7 @@
 	echo '</section>';
 	
 	?>
-	<section class = "board" id= "memberList"></section>
+	<section class = "board" id= "sortTable"></section>
 
 	<script type="text/javascript">select_menu("member");</script>
 </body>
