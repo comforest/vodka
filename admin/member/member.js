@@ -122,13 +122,20 @@ function updateLocation(str){
 		type:"post",
 		data:{"list":arr,"location":str},
 		success:function(data){
-			var column_index = findKeyIndex("location") + 1;
-			var col = $("#sortTable tbody input[type='checkbox']:checked").parent();
-			for (var i = 0; i < column_index; i++) {
-				col = col.next();
+			if(data["status"] == "success"){
+				var arr = data["message"];
+				$.each(arr,function(key,value){
+					var ch = false;
+					$.each(json,function(k,v){
+						if(v["user_id"] == value){
+							json[k]["location"] = str;
+							return;
+						}
+					});
+				});
+				writeList();
+				alert("변경되었습니다.");
 			}
-			col.html(str);
-			alert("변경되었습니다.");
 		}
 	});
 }
@@ -145,27 +152,56 @@ function updateRank(rank){
 		type:"post",
 		data:{"list":arr,"rank":rank},
 		success:function(data){
-			var column_index = findKeyIndex("rank") + 1;
-			var col = $("#sortTable tbody input[type='checkbox']:checked").parent();
-			for (var i = 0; i < column_index; i++) {
-				col = col.next();
+			if(data["status"] == "success"){
+				var arr = data["message"];
+				$.each(arr,function(key,value){
+					var ch = false;
+					$.each(json,function(k,v){
+						if(v["user_id"] == value){
+							json[k]["rank"] = rankarr[rank-1];
+							return;
+						}
+					});
+				});
+				writeList();
+				alert("변경되었습니다.");
 			}
-			col.html(rankarr[rank-1]);
-			alert("변경되었습니다.");
 		}
 	});
 }
 
 function deleteMember(){
-	confirm("정말로 회원들을 탈퇴시겠습니까? 탈퇴 시 서버에 있는 모든 데이터를 삭제합니다.")
+	confirm("정말로 회원들을 탈퇴시겠습니까? 탈퇴 시 해당 회원과 관련된 모든 데이터를 삭제합니다.")
 
 	var arr = getCheckedMemeber();
+	if(arr.length == 0){
+		alert("삭제하고자 하는 회원을 선택해주세요.");
+		return;
+	}
 	$.ajax({
 		url:"deleteMember.php",
 		type:"post",
 		data:{"list":arr},
 		success:function(data){
-			$("#sortTable tbody input[type='checkbox']:checked").parent().parent().remove();
+			if(data["status"] == "success"){
+				var arr = data["message"];
+				$.each(arr,function(key,value){
+					var ch = false;
+					$.each(json,function(k,v){
+						if(v["user_id"] == value){
+							ch = true;
+						}
+						if(json.length - 1 == k){
+							json.splice(arr.length - 1, 1);
+						}else if(ch){
+							json[k] = json[k+1];
+						}
+					});
+				});
+				writeList();
+				alert("삭제 되었습니다.");
+			}
+			// $("#sortTable tbody input[type='checkbox']:checked").parent().parent().remove();
 		}
 	});
 }

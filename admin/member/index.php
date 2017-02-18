@@ -88,10 +88,10 @@ if(!isset($_SESSION["rank"])){
 				<div class="dropdown-content">
 					<?php
 						if(isset($_SESSION["rank"]) && $_SESSION["rank"] <= 1){
-							echo '<button onclick="updateRank(1)">해</button>';
+							// echo '<button onclick="updateRank(1)">해</button>';
+							echo '<button onclick="updateRank(2)">달</button>';
 						}
 					?>
-					<button onclick="updateRank(2)">달</button>
 					<button onclick="updateRank(3)">별</button>
 					<button onclick="updateRank(4)">구름</button>
 				</div>
