@@ -83,12 +83,10 @@ function HtmlCalendar(y, m, data){
 	function getNotice(d){
 		if(data == null) return "";
 		var str = "";
-		while(true){
-			if(not >= data.length) break;
+		while(not >= data.length){
 			var date = new Date(data[not]["date"]);
 			if(date.getDate() == d){
 				var s = "";
-				console.log(data[not]["type"]);
 				switch(data[not]["type"]){
 					case '0': case '1': case '2':
 						s = " href = attend?id=" + data[not]["id"];

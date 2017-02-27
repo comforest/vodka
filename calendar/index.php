@@ -25,7 +25,7 @@
 		<article></article>
 		<?php
 			if(isset($_SESSION["rank"]) && $_SESSION["rank"] <= 2){
-				echo '<a class="editCalendar" href=""><p>일정 추가</p></a>';
+				echo '<a class="editCalendar" href="add/"><p>일정 추가</p></a>';
 			}
 		?>
 	</section>
