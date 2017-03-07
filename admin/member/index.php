@@ -3,7 +3,7 @@
 if(!isset($_SESSION["rank"])){
 	echo "<script>
 	alert(\"로그인을 하셔야 이용가능합니다.\");
-	location.href = \"/user/login\";
+	// location.href = \"/user/login\";
 	</script>";
 }else if($_SESSION["rank"] > 2){
 	echo "<script>
@@ -39,29 +39,48 @@ if(!isset($_SESSION["rank"])){
 					<tr id="Slocation">
 						<td>활동 지역</td>
 						<td>
-							<input class="allCheck" type="checkbox" name="all"> 전체
+							<input class="allCheck" type="checkbox" name="all" checked> 전체
 						</td>
 						<td>
-							<input type="checkbox" name="송도"> 송도
+							<input type="checkbox" name="송도" checked> 송도
 						</td>
 						<td>
-							<input type="checkbox" name="신촌"> 신촌
+							<input type="checkbox" name="신촌" checked> 신촌
 						</td>
 						<td>
-							<input type="checkbox" name=""> 휴면
+							<input type="checkbox" name="휴면" checked> 휴면
 						</td>
 					</tr>
 
 					<tr id="Srank">
-									
 						<td>등급</td>
 						<td>
-							<input class="allCheck" type="checkbox" name="all"> 전체
+							<input class="allCheck" type="checkbox" name="all" checked> 전체
 						</td>
-						<td><input type="checkbox" name="해"> 해</td>
-						<td><input type="checkbox" name="달"> 달</td>
-						<td><input type="checkbox" name="별"> 별</td>
-						<td><input type="checkbox" name="구름"> 구름</td>
+						<td><input type="checkbox" name="1" checked> 해</td>
+						<td><input type="checkbox" name="2" checked> 달</td>
+						<td><input type="checkbox" name="3" checked> 별</td>
+						<td><input type="checkbox" name="4" checked> 구름</td>
+					</tr>
+
+					<tr>
+						<td>출석 수</td>
+						<!-- <td>
+							<select id="attend_semester">
+								<option value="all">
+									전체
+								</option>
+								<option value="present">
+									이번 학기
+								</option>
+								<option value="previous">
+									직전 학기
+								</option>
+							</select>
+						</td> -->
+						<td>
+							<input type="number" name="moreAttend" value="0"> 이상
+						</td>
 					</tr>
 				</tbody>
 			</table>
@@ -69,7 +88,7 @@ if(!isset($_SESSION["rank"])){
 			<input type="submit" value="검색하기">
 		</form>
 		
-
+		<div id="num"></div>
 		<table id="sortTable">
 			
 		</table>

@@ -38,8 +38,8 @@
 			<div class="menu">
 				<p class="main_menu">레이팅</p>
 				<ul class="detail_menu">
-					<li>일정</li>
-					<li>출석부</li>
+					<a href="/rating"><li id="rating">레이팅 현황</li></a>
+					<a href="/rating/add"><li id="addRating">레이팅 등록</li></a>
 				</ul>
 			</div>
 		</nav>

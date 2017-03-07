@@ -1,6 +1,7 @@
 var json, json_all;
 var sarr = new Array();
 var afterFunction = function(){};
+var rankList = ["해","달","별","구름"];
 
 
 function setAfterFunction(func){
@@ -46,6 +47,9 @@ function writeList(){
                 value='';
             }
             if(sarr[key] != null){
+                if(key=="rank"){
+                    value=rankList[value-1];
+                }
                 str+="<td>"+value+"</td>";  
             }
         });

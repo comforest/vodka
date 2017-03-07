@@ -6,7 +6,7 @@
 
 	$json = array();
 
-	$query = "SELECT user_id, name, student_id, major, location, rank from user where rank <> 0";
+	$query = "SELECT t1.user_id, name, student_id, major, location, rank, count(t2.user_id) as attend from user as t1 left join attend as t2 on t1.user_id = t2.user_id where t1.rank <> 0 group by user_id order by location asc, rank asc, attend desc";
 	if($result = $mysqli->query($query)){
 		while($data = $result->fetch_array(MYSQLI_ASSOC)){
 			$arr = array();
@@ -17,9 +17,6 @@
 						break;
 					case "class":
 						$value = User::AppendClass($value);
-						break;
-					case "rank":
-						$value = User::RankInttoStr($value);
 						break;
 				}
 				$arr[$key] = $value;

@@ -28,8 +28,10 @@ $(document).ready(function(){
 	addKeyList("major","전공");
 	addKeyList("location","활동 지역");
 	addKeyList("rank", "등급");
+	addKeyList("attend", "출석수");
 
 	setAfterFunction(function(){
+		$("#num").text(json.length);
 		$("#sortTable thead tr").prepend("<th><input type = 'checkbox'></input></th>");
 		$("#sortTable tbody tr").prepend("<td><input type = 'checkbox'></input></td>");
 		
@@ -47,6 +49,7 @@ $(document).ready(function(){
 				$("#sortTable tbody tr:nth-child(" + k + ") input[type='checkbox']").prop("checked", true);
 			}
 		});
+
 	});
 
 
@@ -65,30 +68,56 @@ function filter(){
 	var arr2 = [];
 	
 	var list = $("#Slocation td:nth-child(2) ~ td input[type='checkbox']:checked");
-	$.each(list,function(k,v){
-		arr2 = $.merge(arr2, filterAction("location",v.name,arr1));
-	});
+	if(list.length == 0){
+		arr2 = arr1;
+	}else{
+		$.each(list,function(k,v){
+			arr2 = $.merge(arr2, filterAction("location",v.name,arr1));
+		});
+	}
 
-	arr1 = arr2;
-	arr2 = [];
+
 	list = $("#Srank td:nth-child(2) ~ td input[type='checkbox']:checked");
-	$.each(list,function(k,v){
-		arr2 = $.merge(arr2, filterAction("rank",v.name,arr1));
-	});
-	json = arr2;
+	if(list.length != 0){
+		arr1 = arr2;
+		arr2 = [];
+		$.each(list,function(k,v){
+			arr2 = $.merge(arr2, filterAction("rank",v.name,arr1));
+		});	
+	}
 
+	// var semester = $("#attend_semester").val();
+	var attend = $("input[name=moreAttend]").val();
+
+	if(attend > 0){
+		arr1 = arr2;
+		arr2 = [];
+		arr2 = filterAction("attend",attend,arr1,function(a, b){
+			if(a >= b){
+				return true;
+			}
+			return false;
+		});
+	}
+
+	json = arr2;
 	writeList();
 }
-function filterAction(key, name, arr){
+function filterAction(key, name, arr, checkFunction = filterDefaultFunction){
 	var result = [];
 	$.each(arr, function(k,v){
-		if(v[key] == name){
+		if(checkFunction(v[key], name)){
 			result.push(v);
 		}
 	});
 	return result;
 }
-
+function filterDefaultFunction(a,b){
+	if(a == b){
+		return true;
+	}
+	return false;
+}
 
 
 function getCheckedMemeber(){
