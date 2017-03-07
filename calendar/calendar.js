@@ -44,6 +44,7 @@ function WriteCalendar(y , m){
 		type:'post',
 		data:{year:y,month:(m+1)},
 		success:function(data){
+			console.log(data);
 			HtmlCalendar(y ,m, data);
 		},
 		error: function (request, status, error) {
