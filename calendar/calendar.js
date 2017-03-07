@@ -44,6 +44,7 @@ function WriteCalendar(y , m){
 		type:'post',
 		data:{year:y,month:(m+1)},
 		success:function(data){
+			console.log(data);
 			HtmlCalendar(y ,m, data);
 		},
 		error: function (request, status, error) {
@@ -83,7 +84,8 @@ function HtmlCalendar(y, m, data){
 	function getNotice(d){
 		if(data.length == 0) return "";
 		var str = "";
-		while(not >= data.length){
+		console.log(not);
+		while(not < data.length){
 			var date = new Date(data[not]["date"]);
 			if(date.getDate() == d){
 				var s = "";
@@ -92,7 +94,7 @@ function HtmlCalendar(y, m, data){
 						s = " href = attend?id=" + data[not]["id"];
 						break;
 				}
-				str += "<a"+s+">"+data[not]["text"]+"</a>";
+				str += "<a"+s+">"+data[not]["text"]+"</a><br>";
 				++not;
 			}else{
 				break;

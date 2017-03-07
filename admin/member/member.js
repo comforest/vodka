@@ -87,7 +87,7 @@ function filter(){
 	}
 
 	// var semester = $("#attend_semester").val();
-	var attend = $("input[name=moreAttend]").val();
+	var attend = Number($("input[name=moreAttend]").val());
 
 	if(attend > 0){
 		arr1 = arr2;

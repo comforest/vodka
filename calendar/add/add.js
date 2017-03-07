@@ -51,13 +51,13 @@ function addCalendar(){
 	var date = new Date(start);
 	var end_date = new Date(end);
 
-	// if(date > end_date){
-	// 	alter("종료 날짜가 시작 날짜보다 빠를 수 없습니다.");
-	// 	return;
-	// }
+	if(date > end_date){
+		alert("종료 날짜가 시작 날짜보다 빠를 수 없습니다.");
+		return;
+	}
 
 	if(repeat == "none"){
-		alter("잘못된 방식입니다.");
+		alert("잘못된 방식입니다.");
 		return;
 	}else if(repeat == "no-repeat"){
 		result["group"] = false;
@@ -83,13 +83,31 @@ function addCalendar(){
 	result["type"] = $("#type").val();
 	result["text"] = $("input[name=title]").val();
 	
+	$("input[type=submit]").prop("disabled", true);
 
 	$.ajax({
 		url:'addCalendar.php',
 		type:'post',
 		data:{data:result},	
 		success:function(data){
-			console.log(data);
+			$("input[type=submit]").prop("disabled", false);
+			switch(data["status"]){
+				case "success":
+					alert("정상적으로 저장되었습니다.");
+					location.href="/calendar";
+					break;
+				case "ErrorRank":
+					alert("잘못된 접근입니다.");
+					break;
+				case "Error":
+					if(data["ErrorCode"] == "1"){
+						alert("알 수 없는 오류가 발생하였습니다.");
+					}else if(data["ErrorCode"] == "2"){
+						alert("오류가 발생하였습니다.");
+					}else if(data["ErrorCode"] == "3"){
+						alert("종료 날짜가 빠릅니다.");
+					}
+			}
 		},
 		error: function (request, status, error) {
 			console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
