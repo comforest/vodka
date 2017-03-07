@@ -44,7 +44,6 @@ function WriteCalendar(y , m){
 		type:'post',
 		data:{year:y,month:(m+1)},
 		success:function(data){
-			console.log(data);
 			HtmlCalendar(y ,m, data);
 		},
 		error: function (request, status, error) {
@@ -82,7 +81,7 @@ function HtmlCalendar(y, m, data){
 	}
 	var not = 0;
 	function getNotice(d){
-		if(data == null) return "";
+		if(data.length == 0) return "";
 		var str = "";
 		while(not >= data.length){
 			var date = new Date(data[not]["date"]);
