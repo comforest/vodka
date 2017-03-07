@@ -79,7 +79,7 @@ if(!isset($_SESSION["rank"])){
 							</select>
 						</td> -->
 						<td>
-							<input type="number" name="moreAttend" value="0"> 이상
+							<input type="number" name="moreAttend" value="0" min> 이상
 						</td>
 					</tr>
 				</tbody>
