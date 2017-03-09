@@ -42,5 +42,17 @@
 					<a href="/rating/add"><li id="addRating">레이팅 등록</li></a>
 				</ul>
 			</div>
+			<?php
+				if(isset($_SESSION["rank"]) && $_SESSION["rank"] <= 2){
+					echo '
+					<div class="menu">
+						<p class="main_menu">관리 페이지</p>
+						<ul class="detail_menu">
+							<a href="/admin/member"><li id="adminMember">맴버 정보</li></a>
+						</ul>
+					</div>
+					';
+				}
+			?>
 		</nav>
 </aside>
