@@ -25,9 +25,6 @@
 					case "class":
 						$value = User::AppendClass($value);
 						break;
-					case "rank":
-						$value = User::RankInttoStr($value);
-						break;
 					case "fee":
 						$value = User::InttoOX($value);
 						break;
