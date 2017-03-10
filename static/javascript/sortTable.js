@@ -1,7 +1,7 @@
 var json, json_all;
 var sarr = new Array();
 var afterFunction = function(){};
-var rankList = ["해","달","별","구름"];
+var rankList = ["해","달","별","구름",""];
 
 
 function setAfterFunction(func){
