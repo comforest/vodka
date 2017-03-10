@@ -28,10 +28,10 @@ $(document).ready(function(){
 	addKeyList("major","전공");
 	addKeyList("location","활동 지역");
 	addKeyList("rank", "등급");
-	addKeyList("attend", "출석수");
+	addKeyList("totalAttend", "출석수");
 
 	setAfterFunction(function(){
-		$("#num").text(json.length);
+		$("#num").text(json.length + " / " + json_all.length + " 명");
 		$("#sortTable thead tr").prepend("<th><input type = 'checkbox'></input></th>");
 		$("#sortTable tbody tr").prepend("<td><input type = 'checkbox'></input></td>");
 		
