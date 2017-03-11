@@ -26,9 +26,9 @@
 <body>
 
 	<?php
-	include $_SERVER["DOCUMENT_ROOT"]."/static/php/header.inc";
-	include_once $_SERVER["DOCUMENT_ROOT"]."/static/php/userInfo.php";
-	include_once $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
+	include $_SERVER["DOCUMENT_ROOT"]."/static/php/header.php";
+	require_once $_SERVER["DOCUMENT_ROOT"]."/static/php/userInfo.php";
+	require_once $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
 
 	$total = array();
 	if($result = $mysqli->query("SELECT * FROM user WHERE location <> ''")){

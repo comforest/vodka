@@ -29,8 +29,8 @@ if(!isset($_SESSION["rank"])){
 <body>
 
 	<?php
-		include $_SERVER["DOCUMENT_ROOT"]."/static/php/header.inc";
-		include $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
+		include $_SERVER["DOCUMENT_ROOT"]."/static/php/header.php";
+		require_once $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
 	?>
 	<script type="text/javascript">select_menu("calendar");</script>
 

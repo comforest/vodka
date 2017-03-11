@@ -25,14 +25,14 @@
 <body>
 
 	<?php
-		include $_SERVER["DOCUMENT_ROOT"]."/static/php/header.inc";
+		include $_SERVER["DOCUMENT_ROOT"]."/static/php/header.php";
 	?>
 
 	<section id="myInfo">
 		<h3>내정보</h3>
 		<table>
 			<?php
-			include $_SERVER["DOCUMENT_ROOT"]."/static/php/userInfo.php";
+			require_once $_SERVER["DOCUMENT_ROOT"]."/static/php/userInfo.php";
 			$user = User::FindByID($_SESSION["user"]);
 			echo "<tr>";
 			echo "<td>이름</td>";
@@ -78,7 +78,7 @@
 			</thead>
 			<tbody id="list">
 			<?php
- 			include $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
+ 			require_once $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
 
  			if($result=$mysqli->query("SELECT name,note from game Where user_id = ".$_SESSION["user"])){
  				while($data = $result->fetch_array(MYSQLI_ASSOC)){

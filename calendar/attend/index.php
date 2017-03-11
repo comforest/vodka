@@ -18,12 +18,12 @@
 <body>
 
 	<?php
-		include "$_SERVER[DOCUMENT_ROOT]/static/php/header.inc";
+		include "$_SERVER[DOCUMENT_ROOT]/static/php/header.php";
 	?>
 
 	<section>
 		<?php
-			include_once "$_SERVER[DOCUMENT_ROOT]/static/php/mysqli.inc";
+			require_once "$_SERVER[DOCUMENT_ROOT]/static/php/mysqli.inc";
 
 			$query = "SELECT date,text from calendar where calendar_id=$_GET[id]";
 

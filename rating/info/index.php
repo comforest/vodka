@@ -12,7 +12,7 @@
 <body>
 
 	<?php
-		include $_SERVER["DOCUMENT_ROOT"]."/static/php/header.inc";
+		include $_SERVER["DOCUMENT_ROOT"]."/static/php/header.php";
 	?>
 
 	<section>

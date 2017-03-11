@@ -25,8 +25,8 @@
 
 	<section>
 	<?php
-		include $_SERVER["DOCUMENT_ROOT"]."/static/php/header.inc";
-		include $_SERVER["DOCUMENT_ROOT"]."/static/php/userInfo.php";
+		include $_SERVER["DOCUMENT_ROOT"]."/static/php/header.php";
+		require_once $_SERVER["DOCUMENT_ROOT"]."/static/php/userInfo.php";
 
 		if(isset(User::FindByID($_SESSION["user"])['nickname'])){
 			echo '이미 닉네임이 존재합니다.';

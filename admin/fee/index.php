@@ -31,7 +31,7 @@ if(!isset($_SESSION["rank"])){
 <body>
 
 	<?php
-		include $_SERVER["DOCUMENT_ROOT"]."/static/php/header.inc";
+		include $_SERVER["DOCUMENT_ROOT"]."/static/php/header.php";
 	?>
 	<section class = "board">
 		<a onclick="showName()">회비 내지 않은 사람 이름 나열하기</a><br>
