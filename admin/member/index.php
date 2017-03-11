@@ -116,11 +116,12 @@ if(!isset($_SESSION["rank"])){
 				</div>
 			</div>
 			<button onclick="deleteMember()">회원 탈퇴</button>
+			<button onclick="insertNewbie()">신입 회원 입력</button>
 		</section>
 
 
 		<section>
-			 <form enctype="multipart/form-data" action="send_ok.php" method="POST">		
+			 <form enctype="multipart/form-data" action="memberUpload.php" method="POST">		
 			    이 파일을 전송합니다: <input name="userfile" type="file" />
 			    <input type="submit" value="파일 전송" />
 			 </form>

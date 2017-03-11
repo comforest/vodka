@@ -235,6 +235,14 @@ function deleteMember(){
 	});
 }
 
+function insertNewbie(){
+	var width = 400;
+	var height = 200;
+    var left = Math.ceil((window.screen.width - width)/2);
+    var top = Math.ceil((window.screen.height - height)/2);
+	var option = "width="+width+", height="+height+",left="+left+",top="+top+", resizable=no, status=no,toolbar=no;";
+	window.open("newbie","",option);
+}
 
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {

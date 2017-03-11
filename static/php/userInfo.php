@@ -172,6 +172,16 @@ class User{
 	public static function RemoveClass($str){
 		return str_replace("기", "", $str);
 	}
+
+	public static function GetRecentClass(){
+		require $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
+		if($result = $mysqli->query("SELECT class from user order by class desc")){
+			if($data = $result->fetch_array(MYSQLI_ASSOC)){
+				return $data["class"];
+			}
+		}
+		return 0;
+	}
 }
 
 
