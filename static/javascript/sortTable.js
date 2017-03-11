@@ -80,12 +80,26 @@ var prevKey;
 *           func - 배열 후 실행 할 함수
 */
 function sortJson(json, key){
+    var f = function(a,b){
+        return Number(a) < Number(b);
+    };
+
+    for(i in json){
+        if(isNaN(json[i][key]) == true){
+            f = function(a,b){
+                return a.localeCompare(b) <= 0;
+            };
+            break;
+        }
+    }
+
+
     if(prevKey == key){
         prevKey ="";
-        json = mergeSort(json, key, -1);
+        json = mergeSort(json, key, function(a,b){f(b,a);});
     }else{
         prevKey = key;
-        json = mergeSort(json, key, 1);
+        json = mergeSort(json, key, f);
     }
     return json;
 }
@@ -94,10 +108,10 @@ function sortJson(json, key){
 /* mergeSort & merge
 *	param : arr - json Array
 *			key - json Array에서 비교할 key
-*			s - 1 오름차순, -1 내림차순
+*			f - 정렬 기준 함수
 *	retrun : 정렬된 배열
 */
-function mergeSort(arr, key,s){
+function mergeSort(arr, key,f){
     if (arr.length < 2)
         return arr;
 
@@ -105,13 +119,13 @@ function mergeSort(arr, key,s){
     var left   = arr.slice(0, middle);
     var right  = arr.slice(middle, arr.length);
 
-    return merge(mergeSort(left,key,s), mergeSort(right,key,s),key,s);
+    return merge(mergeSort(left,key,f), mergeSort(right,key,f),key,f);
 }
-function merge(left, right, key,s){
+function merge(left, right, key,f){
     var result = [];
 
     while (left.length && right.length) {
-        if (left[0][key].localeCompare(right[0][key])*s <= 0) {
+        if (f(left[0][key],right[0][key])) {
             result.push(left.shift());
         } else {
             result.push(right.shift());

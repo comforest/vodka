@@ -105,6 +105,11 @@ try {
 		$mysqli->query($query);
 		echo $query."<br>";
 	}
+	echo "<script>
+	alert(\"입력을 모두 마쳤습니다.\");
+	opener.parent.location.reload();
+	window.close();
+	</script>";
 
 }catch (exception $e) {
     echo '엑셀파일을 읽는도중 오류가 발생하였습니다.';
