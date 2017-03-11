@@ -120,12 +120,6 @@ if(!isset($_SESSION["rank"])){
 		</section>
 
 
-		<section>
-			 <form enctype="multipart/form-data" action="memberUpload.php" method="POST">		
-			    이 파일을 전송합니다: <input name="userfile" type="file" />
-			    <input type="submit" value="파일 전송" />
-			 </form>
-		</section>
 	</section>
 
 </body>
