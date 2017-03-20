@@ -10,13 +10,20 @@
 		exit;
 	}
 
+	//소금 생성
+    $bytes = openssl_random_pseudo_bytes(10, $cstrong);
+    $hex   = bin2hex($bytes);
+    //hash화
+    $pw = $_POST['pw'].$hex;
+    $pw = hash('sha256',$pw);
+
 	include_once $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
-	$query = "UPDATE user set id = '$_POST[id]', password = '$_POST[pw]',nickname = '$_POST[nick]' where user_id = $_SESSION[register]";
+	$query = "UPDATE user set id = '$_POST[id]', password = '$pw',nickname = '$_POST[nick]', hash_salt = '$hex' where user_id = $_SESSION[register]";
 	if($mysqli -> query($query)){
 		echo SUCCESS;
+		session_destroy();
 	}else{
 		echo MYSQL_ERROR;
 	}
 
-	session_destroy();
 ?>

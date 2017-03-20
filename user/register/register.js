@@ -191,11 +191,7 @@ function checkNick(){
 }
 
 function register(){
-	checkID();
-	checkPW1();
-	checkPW2();
-	checkNick();
-
+	
 	if(!BcheckID){
 		alert("아이디를 확인해 주세요");
 		return;

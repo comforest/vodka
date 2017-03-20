@@ -33,13 +33,13 @@
 	?>
 
 	<section class="login">
-		<form method="POST" onsubmit="return false;">
+		<form method="POST" onsubmit="login();return false;">
 			<h1>V o D K a</h1>
 			<p>아이디</p>
 			<input type="text" name="id" placeholder="ID" value="<?php echo $userID ?>">
 			<p>비밀번호</p>
 			<input type="password" name="pass" placeholder="PassWord" value="<?php echo $userPW ?>">
-			<input type="submit" value="로그인" onclick="login(); ">
+			<input type="submit" value="로그인">
 			<p class="auto_login"><input type="checkbox" name="auto" <?php echo $auto ?>> 정보 기억하기</p>
 		</form>
 	</section>

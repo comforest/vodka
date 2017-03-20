@@ -17,7 +17,7 @@ function login(){
 				if(data == true){
 					var url = $("input[name='url']").val();
 					location.href=url;
-				}else{
+				}else{					
 					alert("ID 또는 비밀번호가 틀렸습니다.");
 				}
 			}
