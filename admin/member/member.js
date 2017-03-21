@@ -246,7 +246,10 @@ function resetUser(){
 		type:"post",
 		data:{"list":arr},
 		success:function(data){
-			
+			console.log(data);
+			if(data["status"]=="success"){
+				alert("초기화 되었습니다.");
+			}
 		}
 	});
 

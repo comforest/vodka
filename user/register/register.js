@@ -222,6 +222,7 @@ function register(){
 				alert("알 수 없는 문제가 발생하였습니다. 처음부터 다시 해보시고 같은 문제가 발생할 시 개발자에게 연락바랍니다.");
 			}else if(data == "3"){ //SESSION Missing
 				alert("잘못된 접근입니다. 처음부터 다시 해주세요.");
+				window.reload();
 			}
 		}
 	});

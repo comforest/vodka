@@ -20,7 +20,7 @@
 
 	<section>
 
-		<select oonchange='setTable()''>
+		<select onchange='setTable()''>
 			<?php
 				require_once $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
 				if($result = $mysqli->query("SELECT game_id,game,max from rating_game")){

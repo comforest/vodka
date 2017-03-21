@@ -42,9 +42,12 @@
 			<input type="submit" value="로그인">
 			<p class="auto_login"><input type="checkbox" name="auto" <?php echo $auto ?>> 정보 기억하기</p>
 		</form>
+		<a href="/user/register/">
+			<button>회원 등록하기</button>
+		</a>
 	</section>
 
 
-	<input type="hidden" name="url" value= <?php echo $_SERVER['HTTP_REFERER'] ?>>
+	<input type="hidden" name="url" value= '<?php if(isset($_SERVER['HTTP_REFERER'])) echo $_SERVER['HTTP_REFERER'] ?>'>
 </body>
 </html>

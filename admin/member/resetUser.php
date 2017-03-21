@@ -13,7 +13,7 @@
 	$arr = $_POST["list"];
 
 	foreach ($arr as $key => $value) {
-		$query = "UPDATE user set location='$_POST[location]' where user_id = $value and rank > $_SESSION[rank]";
+		$query = "UPDATE user set id=null, password=null,hash_salt=null where user_id = $value and (rank > $_SESSION[rank] or user_id = $_SESSION[user]) ";
 		if($result = $mysqli->query($query)){
 			$json[] = $value;
 		}
