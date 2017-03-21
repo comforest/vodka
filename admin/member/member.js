@@ -264,6 +264,10 @@ function insertNewbie(){
 	window.open("newbie","",option);
 }
 
+
+
+
+
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {
 	if (!event.target.matches('.dropbtn')) {

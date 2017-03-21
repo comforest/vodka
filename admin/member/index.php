@@ -118,6 +118,11 @@ if(!checkAdmin()){
 			<button onclick="resetUser()">아이디 비번 초기화</button>
 		</section>
 
+		<br>
+
+		<a href="createMemberExcel.php">
+			<button>회원 목록 엑셀 파일 받기</button>
+		</a>
 
 	</section>
 
