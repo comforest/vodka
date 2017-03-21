@@ -6,11 +6,10 @@
 	define("ERROR_DATAMISSING", 2);
 	define("ERROR_ENDDATE", 3);
 
-	$json = [];
-	if(!isset($_SESSION["rank"]) || $_SESSION["rank"] > 2){
-		$json = array("status"=>"ErrorRank");
-		echo json_encode($json);
-		exit;
+	include $_SERVER["DOCUMENT_ROOT"]."/static/php/checkLogin.php";
+
+	if(!checkAdmin()){
+		notAdminJson();
 	}
 
 	if(!isset($_POST["data"])){
@@ -19,6 +18,7 @@
 		exit;
 	}
 
+	$json = [];
 
 	include $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";
 	$data = $_POST["data"];

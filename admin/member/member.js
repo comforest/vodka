@@ -235,6 +235,23 @@ function deleteMember(){
 	});
 }
 
+function resetUser(){
+	var arr = getCheckedMemeber();
+	if(arr.length == 0){
+		alert("회원을 선택해주세요.");
+		return;
+	}
+	$.ajax({
+		url:"resetUser.php",
+		type:"post",
+		data:{"list":arr},
+		success:function(data){
+			
+		}
+	});
+
+}
+
 function insertNewbie(){
 	var width = 400;
 	var height = 200;

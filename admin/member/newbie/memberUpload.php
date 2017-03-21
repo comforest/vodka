@@ -1,10 +1,10 @@
 <?php
 session_start();
-if($_SESSION["rank"] > 2){
-	echo "<script>
-	alert(\"접근 권한이 없습니다..\");
-	location.href = \"/\";
-	</script>";
+include $_SERVER["DOCUMENT_ROOT"]."/static/php/checkLogin.php";
+
+if(!checkAdmin()){
+	notAdminIndex();
+	echo "<script>window.close();</script>"
 }
 
 if(($_FILES['userfile']['error'] > 0) || ($_FILES['userfile']['size'] <= 0)){

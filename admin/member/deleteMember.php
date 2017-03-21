@@ -1,12 +1,12 @@
 <?php
 	session_start();
+	include $_SERVER["DOCUMENT_ROOT"]."/static/php/checkLogin.php";
+
 	header("Content-Type:application/json");
 
 	$json = [];
-	if(!isset($_SESSION["rank"]) || $_SESSION["rank"] > 2){
-		$json = array("status"=>"ErrorRank");
-		echo json_encode($json);
-		exit;
+	if(!checkAdmin()){
+		notAdminJson();
 	}
 
 	include $_SERVER["DOCUMENT_ROOT"]."/static/php/mysqli.inc";

@@ -1,16 +1,14 @@
 <!-- 관리-회원 페이지 -->
 <?php session_start();
-if(!isset($_SESSION["rank"])){
-	echo "<script>
-	alert(\"로그인을 하셔야 이용가능합니다.\");
-	location.href = \"/user/login\";
-	</script>";
-}else if($_SESSION["rank"] > 2){
-	echo "<script>
-	alert(\"접근 권한이 없습니다..\");
-	location.href = \"/\";
-	</script>";
+include $_SERVER["DOCUMENT_ROOT"]."/static/php/checkLogin.php";
+
+if(!checkLogin()){
+	notLoginIndex();
 }
+if(!checkAdmin()){
+	notAdminIndex();
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -117,6 +115,7 @@ if(!isset($_SESSION["rank"])){
 			</div>
 			<button onclick="deleteMember()">회원 탈퇴</button>
 			<button onclick="insertNewbie()">신입 회원 입력</button>
+			<button onclick="resetUser()">아이디 비번 초기화</button>
 		</section>
 
 
